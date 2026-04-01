@@ -130,112 +130,121 @@
     <div class="main-content">
       <div class="content-width">
         <p><span class="caption">Part 2: Build a prototype</span></p>
- <h1>Link your pages</h1>
- <p>You have built all five pages. Right now they are separate – clicking Continue on a form shows an error because nothing is handling the form submission. This step connects everything together so someone can click through the full journey from start to confirmation.</p>
- <p>In the Prototype Kit, a file called app/routes.js handles page routing. <code>app/routes.js</code>. The pattern works like this: each form posts to its own URL, and the router intercepts that submission and decides where to send the user next. This means the form action on each page points back to itself – not to the next page.</p>
- <p>For example: the issue-type form posts to <code>/issue-type</code>, the router catches that POST and redirects to <code>/issue-location</code>, where the user sees the next question.</p>
- <h2>Step 1: Check your form actions first</h2>
- <p>Before touching routes.js, it is worth asking Gemini to verify that all your pages are pointing to the right URLs. A mismatch here is the most common reason a journey skips pages or ends up in the wrong place.</p>
- <div class="code-block"><code>Check the form action attributes and button links across all pages in app/views. They should follow this pattern — each form posts to its own URL, and the router handles the redirect to the next page:
+<h1>Link your pages</h1>
+<p>You have built all five pages. Right now they are separate – clicking Continue on a form shows an error because nothing is handling the form submission. This step connects everything together so someone can click through the full journey from start to confirmation.</p>
+<p>In the Prototype Kit, a file called <code>app/routes.js</code> handles page routing. The pattern works like this: each form posts to its own URL, and the router intercepts that submission and decides where to send the user next. This means the form action on each page points back to itself – not to the next page.</p>
+<p>For example: the issue-type form posts to <code>/issue-type</code>, the router catches that POST and redirects to <code>/issue-location</code>, where the user sees the next question.</p>
+<h2>Step 1: Check your form actions first</h2>
+<p>Before touching routes.js, it is worth asking Gemini to verify that all your pages are pointing to the right URLs. A mismatch here is the most common reason a journey skips pages or ends up in the wrong place.</p>
+<pre><code>Check the form action attributes and button links across all pages in app/views. They should follow this pattern — each form posts to its own URL, and the router handles the redirect to the next page:
 - app/views/start.html: the Start now button href should be /issue-type
 - app/views/issue-type.html: form action should be /issue-type
 - app/views/issue-location.html: form action should be /issue-location
 - app/views/check-answers.html: form action should be /check-answers
-<p>Fix any that are wrong and tell me what you changed.</code></div></p>
- <p>Once Gemini confirms everything looks correct, move on to adding the routes.</p>
- <h2>Step 2: Add the routes</h2>
- <p>In Gemini CLI, paste this prompt:</p>
- <div class="code-block"><code>Update app/routes.js to add routing for the "Report a building issue" prototype journey.
-<p>Add these three POST routes after any existing code, before the module.exports line:</p>
-<p>router.post('/issue-type', function(req, res) {
-res.redirect('/issue-location')
-})</p>
-<p>router.post('/issue-location', function(req, res) {
-res.redirect('/check-answers')
-})</p>
-<p>router.post('/check-answers', function(req, res) {
-res.redirect('/confirmation')
-})</p>
-<p>Do not remove any existing code. Do not add any GET routes.</code></div></p>
- <p>Type <strong>yes</strong> when Gemini asks permission to edit the file.</p>
- <div class="inset-text">
- <p>The prompt only includes POST routes – not GET routes. This is intentional. The Prototype Kit handles GET requests automatically via auto-routing, so adding them manually creates a second definition of the same route that can conflict. Only form submissions (POST) need explicit routes.</p>
- </div>
- <h2>Test the full journey</h2>
- <p>Go to <code>http://localhost:3000/start</code> and click "Start now". Check the URL in your browser's address bar at each step – it should follow this exact sequence:</p>
- <ol>
- <li><code>/start</code> → click "Start now" → should land on <code>/issue-type</code></li>
- <li><code>/issue-type</code> → select an option, click "Continue" → should land on <code>/issue-location</code></li>
- <li><code>/issue-location</code> → fill in both fields, click "Continue" → should land on <code>/check-answers</code></li>
- <li><code>/check-answers</code> → click "Accept and send" → should land on <code>/confirmation</code></li>
- </ol>
- <div class="inset-text">
- <p><strong>Checkpoint:</strong> Watch the URL bar at each step. Every page in the list above should appear in order, with no pages skipped. If a page is being skipped – for example, going from <code>/issue-type</code> straight to <code>/check-answers</code> – see the troubleshooting below.</p>
- </div>
- <details>
- <summary>A page is being skipped – the journey jumps to the wrong page</summary>
- <div class="details-body">
- <p>The most common cause is a hidden CSRF token that Gemini sometimes adds to forms. The Prototype Kit does not use CSRF tokens – if one is present, it causes the form submission to fail silently and the kit skips to the next matching route.</p>
- <p>Ask Gemini to check all your form pages for this:</p>
- <div class="code-block"><code>Check every HTML file in app/views for a hidden input with name="_csrf". For example:
+
+Fix any that are wrong and tell me what you changed.
+</code></pre>
+<p>Once Gemini confirms everything looks correct, move on to adding the routes.</p>
+<h2>Step 2: Add the routes</h2>
+<p>In Gemini CLI, paste this prompt:</p>
+<pre><code>Update app/routes.js to add routing for the &quot;Report a building issue&quot; prototype journey.
+
+Add these three POST routes after any existing code, before the module.exports line:
+
+router.post('/issue-type', function(req, res) {
+  res.redirect('/issue-location')
+})
+
+router.post('/issue-location', function(req, res) {
+  res.redirect('/check-answers')
+})
+
+router.post('/check-answers', function(req, res) {
+  res.redirect('/confirmation')
+})
+
+Do not remove any existing code. Do not add any GET routes.
+</code></pre>
+<p>Type <strong>yes</strong> when Gemini asks permission to edit the file.</p>
+<div class="inset-text">
+<p>The prompt only includes POST routes – not GET routes. This is intentional. The Prototype Kit handles GET requests automatically via auto-routing, so adding them manually creates a second definition of the same route that can conflict. Only form submissions (POST) need explicit routes.</p>
+</div>
+<h2>Test the full journey</h2>
+<p>Go to <code>http://localhost:3000/start</code> and click &quot;Start now&quot;. Check the URL in your browser's address bar at each step – it should follow this exact sequence:</p>
+<ol>
+<li><code>/start</code> → click &quot;Start now&quot; → should land on <code>/issue-type</code></li>
+<li><code>/issue-type</code> → select an option, click &quot;Continue&quot; → should land on <code>/issue-location</code></li>
+<li><code>/issue-location</code> → fill in both fields, click &quot;Continue&quot; → should land on <code>/check-answers</code></li>
+<li><code>/check-answers</code> → click &quot;Accept and send&quot; → should land on <code>/confirmation</code></li>
+</ol>
+<div class="inset-text">
+<p><strong>Checkpoint:</strong> Watch the URL bar at each step. Every page in the list above should appear in order, with no pages skipped. If a page is being skipped – for example, going from <code>/issue-type</code> straight to <code>/check-answers</code> – see the troubleshooting below.</p>
+</div>
+<details>
+<summary>A page is being skipped – the journey jumps to the wrong page</summary>
+<div class="details-body">
+<p>The most common cause is a hidden CSRF token that Gemini sometimes adds to forms. The Prototype Kit does not use CSRF tokens – if one is present, it causes the form submission to fail silently and the kit skips to the next matching route.</p>
+<p>Ask Gemini to check all your form pages for this:</p>
+<div class="code-block"><code>Check every HTML file in app/views for a hidden input with name="_csrf". For example:
 &lt;input type="hidden" name="_csrf" value="{{ csrfToken }}"&gt;
 <p>Remove this line from any file that has it. The GOV.UK Prototype Kit does not use CSRF tokens and this will cause form submissions to skip pages.</code></div></p>
- <p>The second possible cause is a wrong form <code>action</code> attribute. Ask Gemini to audit these too:</p>
- <div class="code-block"><code>Check the form action attributes across all pages in app/views. Each form should post to its own URL — the router handles redirecting to the next page:
+<p>The second possible cause is a wrong form <code>action</code> attribute. Ask Gemini to audit these too:</p>
+<div class="code-block"><code>Check the form action attributes across all pages in app/views. Each form should post to its own URL — the router handles redirecting to the next page:
 - app/views/issue-type.html: form action should be /issue-type
 - app/views/issue-location.html: form action should be /issue-location
 - app/views/check-answers.html: form action should be /check-answers
 <p>Fix any that are wrong.</code></div></p>
- </div>
- </details>
- <details>
- <summary>I still get a "Cannot POST" error on one of the pages</summary>
- <div class="details-body">
- <p>Check which URL the error shows. For example, if you see <code>Cannot POST /issue-location</code>, it means the POST route for <code>/issue-location</code> is missing or has a typo. Ask Gemini:</p>
- <div class="code-block"><code>I am getting a "Cannot POST /issue-location" error. Check app/routes.js and make sure there is a POST route for /issue-location that redirects to /check-answers.</code></div>
- </div>
- </details>
- <details>
- <summary>The routes file looks wrong or the prototype crashed</summary>
- <div class="details-body">
- <p>If the prototype stopped working after Gemini edited routes.js, it may have introduced a syntax error. Look at the terminal running <code>npm run dev</code> – it will show the error. Ask Gemini:</p>
- <div class="code-block"><code>The prototype has stopped working after editing app/routes.js. The terminal shows this error: [paste the error here]. Please fix the routes file.</code></div>
- <p>You can also press Ctrl+Z in VS Code with routes.js open to undo Gemini's changes, then restart with a more specific prompt.</p>
- </div>
- </details>
- <h2>Understanding routing</h2>
- <details>
- <summary>The difference between GET and POST routes</summary>
- <div class="details-body">
- <p>A GET request happens when a browser loads a page – like typing a URL in the address bar. A POST request happens when a form is submitted. Your question pages have forms that POST to a URL, and the routes.js POST routes catch those submissions and redirect to the next page.</p>
- <p>GET routes display a page. POST routes handle form submissions and redirect the user. Most pages need both.</p>
- </div>
- </details>
- <details>
- <summary>Adding branching based on a user's answer</summary>
- <div class="details-body">
- <p>You can read the submitted form data from <code>req.body</code> inside a POST route. Ask Gemini:</p>
- <div class="code-block"><code>Update the POST /issue-type route in app/routes.js so that if the user selects "Something else", they are redirected to /something-else instead of /issue-location. For all other selections, redirect to /issue-location as before.</code></div>
- <p>Gemini will write the conditional logic using an if statement that checks <code>req.body['issue-type']</code>.</p>
- </div>
- </details>
- <details>
- <summary>Saving user answers and showing them on check answers</summary>
- <div class="details-body">
- <p>The Prototype Kit stores form data in the session automatically – any field submitted via a form is available as <code>{{ data['field-name'] }}</code> in your Nunjucks templates. To show the actual user answers on the check answers page, update that page to reference session data:</p>
- <div class="code-block"><code>Update app/views/check-answers.html so the summary list shows the actual values from session data: use {{ data['issue-type'] }}, {{ data['issue-floor'] }}, and {{ data['issue-description'] }} instead of the hardcoded placeholder values.</code></div>
- </div>
- </details>
- <nav class="pagination" aria-label="Pagination">
- <a href="../create-a-confirmation-page/" class="pagination__link pagination__link--prev">
- <span class="pagination__direction">Previous</span>
- <span class="pagination__page-title">Confirmation page</span>
- </a>
- <a href="../make-it-your-own/" class="pagination__link pagination__link--next">
- <span class="pagination__direction">Next</span>
- <span class="pagination__page-title">Make it your own</span>
- </a>
- </nav>
+</div>
+</details>
+<details>
+<summary>I still get a "Cannot POST" error on one of the pages</summary>
+<div class="details-body">
+<p>Check which URL the error shows. For example, if you see <code>Cannot POST /issue-location</code>, it means the POST route for <code>/issue-location</code> is missing or has a typo. Ask Gemini:</p>
+<div class="code-block"><code>I am getting a "Cannot POST /issue-location" error. Check app/routes.js and make sure there is a POST route for /issue-location that redirects to /check-answers.</code></div>
+</div>
+</details>
+<details>
+<summary>The routes file looks wrong or the prototype crashed</summary>
+<div class="details-body">
+<p>If the prototype stopped working after Gemini edited routes.js, it may have introduced a syntax error. Look at the terminal running <code>npm run dev</code> – it will show the error. Ask Gemini:</p>
+<div class="code-block"><code>The prototype has stopped working after editing app/routes.js. The terminal shows this error: [paste the error here]. Please fix the routes file.</code></div>
+<p>You can also press Ctrl+Z in VS Code with routes.js open to undo Gemini's changes, then restart with a more specific prompt.</p>
+</div>
+</details>
+<h2>Understanding routing</h2>
+<details>
+<summary>The difference between GET and POST routes</summary>
+<div class="details-body">
+<p>A GET request happens when a browser loads a page – like typing a URL in the address bar. A POST request happens when a form is submitted. Your question pages have forms that POST to a URL, and the routes.js POST routes catch those submissions and redirect to the next page.</p>
+<p>GET routes display a page. POST routes handle form submissions and redirect the user. Most pages need both.</p>
+</div>
+</details>
+<details>
+<summary>Adding branching based on a user's answer</summary>
+<div class="details-body">
+<p>You can read the submitted form data from <code>req.body</code> inside a POST route. Ask Gemini:</p>
+<div class="code-block"><code>Update the POST /issue-type route in app/routes.js so that if the user selects "Something else", they are redirected to /something-else instead of /issue-location. For all other selections, redirect to /issue-location as before.</code></div>
+<p>Gemini will write the conditional logic using an if statement that checks <code>req.body['issue-type']</code>.</p>
+</div>
+</details>
+<details>
+<summary>Saving user answers and showing them on check answers</summary>
+<div class="details-body">
+<p>The Prototype Kit stores form data in the session automatically – any field submitted via a form is available as <code>{{ data['field-name'] }}</code> in your Nunjucks templates. To show the actual user answers on the check answers page, update that page to reference session data:</p>
+<div class="code-block"><code>Update app/views/check-answers.html so the summary list shows the actual values from session data: use {{ data['issue-type'] }}, {{ data['issue-floor'] }}, and {{ data['issue-description'] }} instead of the hardcoded placeholder values.</code></div>
+</div>
+</details>
+<nav class="pagination" aria-label="Pagination">
+<a href="../create-a-confirmation-page/" class="pagination__link pagination__link--prev">
+<span class="pagination__direction">Previous</span>
+<span class="pagination__page-title">Confirmation page</span>
+</a>
+<a href="../make-it-your-own/" class="pagination__link pagination__link--next">
+<span class="pagination__direction">Next</span>
+<span class="pagination__page-title">Make it your own</span>
+</a>
+</nav>
+
       </div>
     </div>
 

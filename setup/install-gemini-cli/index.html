@@ -133,25 +133,34 @@
 <h1>Install Gemini CLI</h1>
 <p>Gemini CLI is the AI tool you will use to build your prototype. It reads your project files, understands what you are building, and writes code based on your instructions.</p>
 <p>It is free to use with a Hippo Google account.</p>
+<div class="inset-text">
+  <p>This guide is a sandbox to experiment with locally on your machine. You do not need an API key to follow it – signing in with your Hippo Google account is all you need, and performance will be fine for this level of use.</p>
+</div>
+<div class="warning-text">
+  <span class="warning-text__icon" aria-hidden="true">!</span>
+  <p>If you want to use Gemini CLI on a real project, there are a few things you need to sort out first. You will need the right permissions and should make sure your project lead, delivery/client partner, and client team are aware and on board. You will also need an API key for security and performance reasons. See the <a href="https://wiki.hippodigital.co.uk/working-at-hippo/policies/information-security/other/google-gemini-api-keys" target="_blank" rel="noopener noreferrer">Hippo wiki guidance on Google Gemini API keys</a> for information on the free tier versus paid service.</p>
+</div>
 <h2>Step 1: Install Gemini CLI</h2>
 <p>Open a <strong>new</strong> terminal in VS Code. You need a second terminal because your prototype is still running in the first one.</p>
 <p>To open a new terminal, click the <strong>+</strong> icon in the terminal panel, or go to <strong>Terminal → New Terminal</strong>.</p>
 <p>In the new terminal, type:</p>
-<div class="code-block"><code>npm install -g @google/gemini-cli</code></div>
+<pre><code>npm install -g @google/gemini-cli
+</code></pre>
 <p>This installs Gemini CLI once on your computer. You only need to do this step once.</p>
 <details>
   <summary>I get a 'permission denied' error</summary>
   <div class="details-body">
-    <p>On Mac or Linux, add <code>sudo</code> before the command:</p>
+    <p>On Mac or Linux, you need administrator access to install global packages. If your machine uses <strong>Admin By Request</strong>, request a temporary admin session first, then run the command with <code>sudo</code>:</p>
     <div class="code-block"><code>sudo npm install -g @google/gemini-cli</code></div>
     <p>Enter your computer password when asked. The cursor will not move as you type – this is normal.</p>
-    <p>On Windows, try running VS Code as an administrator.</p>
+    <p>On Windows, try running VS Code as an administrator via Admin By Request.</p>
   </div>
 </details>
 <h2>Step 2: Start Gemini CLI</h2>
 <p>Navigate into your prototype project folder, then start Gemini CLI:</p>
-<div class="code-block"><code>cd ~/prototypes/report-building-issue
-npx @google/gemini-cli</code></div>
+<pre><code>cd ~/prototypes/report-building-issue
+npx @google/gemini-cli
+</code></pre>
 <p>You will use <code>npx</code> every time you want to start Gemini CLI. This is different from the <code>npm install</code> command in Step 1, which you only run once. Think of <code>npm install</code> as putting a tool in your toolbox, and <code>npx</code> as picking it up and using it.</p>
 <p>Gemini CLI must be started from inside your prototype folder – this is how it knows which files to read and edit.</p>
 <p>The first time you run it, it will ask you to sign in with Google.</p>
@@ -177,7 +186,8 @@ npx @google/gemini-cli</code></div>
 <p>You will also see <strong>auto-accept edits</strong> at the top of the interface. Leave this off – it means Gemini will ask your permission before making any changes to files, which is a useful safety net while you are learning.</p>
 <h2>Step 4: Test it with a simple prompt</h2>
 <p>Type the following:</p>
-<div class="code-block"><code>What files and folders are in this project? Give me a brief summary.</code></div>
+<pre><code>What files and folders are in this project? Give me a brief summary.
+</code></pre>
 <p>Gemini should describe the project structure, mentioning <code>app/views</code>, <code>app/assets</code>, and <code>package.json</code>.</p>
 <p>If it asks for permission to read files, type <strong>yes</strong>. Gemini always asks before reading or changing files.</p>
 <div class="inset-text">
