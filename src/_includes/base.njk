@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} – Hippo</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo"><strong>Hippo</strong> Design Community</a>
+      <button class="menu-toggle" aria-label="Show navigation menu">
+        <div class="menu-toggle__icon"><span></span><span></span><span></span></div>
+        Menu
+      </button>
+      <span class="site-header__tag">Guide</span>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay"></div>
+
+  <div class="page-layout">
+
+    <nav class="sidebar" aria-label="Guide navigation">
+      <a href="/" class="sidebar__home{% if page.url == '/' %} sidebar__link--active{% endif %}">← Guide home</a>
+
+      {% for section in sidebarNav %}
+      <div class="sidebar__section">
+        <p class="sidebar__heading">{{ section.part }}</p>
+        <ul class="sidebar__list">
+          {% for item in section.pages %}
+          <li>
+            <a href="{{ item.url }}" class="sidebar__link{% if page.url == item.url %} sidebar__link--active{% endif %}">
+              {{ item.title }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </nav>
+
+    <div class="main-content">
+      <div class="content-width">
+        {{ content | safe }}
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/css/nav.js"></script>
+</body>
+</html>
