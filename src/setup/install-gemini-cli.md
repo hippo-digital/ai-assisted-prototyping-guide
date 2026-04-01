@@ -113,11 +113,11 @@ If it asks for permission to read files, type **yes**. Gemini always asks before
 </details>
 
 <nav class="pagination" aria-label="Pagination">
-  <a href="/setup/install-the-prototype-kit/" class="pagination__link pagination__link--prev">
+  <a href="../install-the-prototype-kit/" class="pagination__link pagination__link--prev">
     <span class="pagination__direction">Previous</span>
     <span class="pagination__page-title">Install the Prototype Kit</span>
   </a>
-  <a href="/setup/check-everything-works/" class="pagination__link pagination__link--next">
+  <a href="../check-everything-works/" class="pagination__link pagination__link--next">
     <span class="pagination__direction">Next</span>
     <span class="pagination__page-title">Check everything works</span>
   </a>

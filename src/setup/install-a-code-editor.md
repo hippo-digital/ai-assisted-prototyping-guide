@@ -46,11 +46,11 @@ part: "Part 1: Get set up"
  </details>
 
  <nav class="pagination" aria-label="Pagination">
- <a href="what-youll-need.html" class="pagination__link pagination__link--prev">
+ <a href="../what-youll-need/" class="pagination__link pagination__link--prev">
  <span class="pagination__direction">Previous</span>
  <span class="pagination__page-title">What you'll need</span>
  </a>
- <a href="install-node.html" class="pagination__link pagination__link--next">
+ <a href="../install-node/" class="pagination__link pagination__link--next">
  <span class="pagination__direction">Next</span>
  <span class="pagination__page-title">Install Node.js</span>
  </a>

@@ -219,7 +219,7 @@ This is a GOV.UK Prototype Kit project for a service called "Report a building i
  </div>
 
  <nav class="pagination" aria-label="Pagination">
- <a href="link-your-pages.html" class="pagination__link pagination__link--prev">
+ <a href="../link-your-pages/" class="pagination__link pagination__link--prev">
  <span class="pagination__direction">Previous</span>
  <span class="pagination__page-title">Link your pages</span>
  </a>

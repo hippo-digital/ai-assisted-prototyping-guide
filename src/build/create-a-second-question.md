@@ -84,11 +84,11 @@ Each input should be wrapped in a govuk-form-group div. Use govuk-input for the 
  </details>
 
  <nav class="pagination" aria-label="Pagination">
- <a href="create-a-question-page.html" class="pagination__link pagination__link--prev">
+ <a href="../create-a-question-page/" class="pagination__link pagination__link--prev">
  <span class="pagination__direction">Previous</span>
  <span class="pagination__page-title">Create a question page</span>
  </a>
- <a href="create-a-check-answers-page.html" class="pagination__link pagination__link--next">
+ <a href="../create-a-check-answers-page/" class="pagination__link pagination__link--next">
  <span class="pagination__direction">Next</span>
  <span class="pagination__page-title">Check answers page</span>
  </a>

@@ -91,11 +91,11 @@ Use GOV.UK Frontend classes throughout. The button should use the correct GOV.UK
  </details>
 
  <nav class="pagination" aria-label="Pagination">
- <a href="overview.html" class="pagination__link pagination__link--prev">
+ <a href="../overview/" class="pagination__link pagination__link--prev">
  <span class="pagination__direction">Previous</span>
  <span class="pagination__page-title">What you'll build</span>
  </a>
- <a href="create-a-question-page.html" class="pagination__link pagination__link--next">
+ <a href="../create-a-question-page/" class="pagination__link pagination__link--next">
  <span class="pagination__direction">Next</span>
  <span class="pagination__page-title">Create a question page</span>
  </a>

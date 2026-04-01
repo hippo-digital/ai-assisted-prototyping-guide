@@ -134,11 +134,11 @@ Fix any that are wrong.</code></div>
  </details>
 
  <nav class="pagination" aria-label="Pagination">
- <a href="create-a-confirmation-page.html" class="pagination__link pagination__link--prev">
+ <a href="../create-a-confirmation-page/" class="pagination__link pagination__link--prev">
  <span class="pagination__direction">Previous</span>
  <span class="pagination__page-title">Confirmation page</span>
  </a>
- <a href="make-it-your-own.html" class="pagination__link pagination__link--next">
+ <a href="../make-it-your-own/" class="pagination__link pagination__link--next">
  <span class="pagination__direction">Next</span>
  <span class="pagination__page-title">Make it your own</span>
  </a>

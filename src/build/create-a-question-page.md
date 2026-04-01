@@ -90,11 +90,11 @@ Follow GOV.UK Frontend markup exactly, including the govuk-form-group wrapper an
  </details>
 
  <nav class="pagination" aria-label="Pagination">
- <a href="create-a-start-page.html" class="pagination__link pagination__link--prev">
+ <a href="../create-a-start-page/" class="pagination__link pagination__link--prev">
  <span class="pagination__direction">Previous</span>
  <span class="pagination__page-title">Create a start page</span>
  </a>
- <a href="create-a-second-question.html" class="pagination__link pagination__link--next">
+ <a href="../create-a-second-question/" class="pagination__link pagination__link--next">
  <span class="pagination__direction">Next</span>
  <span class="pagination__page-title">A second question page</span>
  </a>

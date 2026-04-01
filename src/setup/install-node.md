@@ -60,11 +60,11 @@ part: "Part 1: Get set up"
  </details>
 
  <nav class="pagination" aria-label="Pagination">
- <a href="install-a-code-editor.html" class="pagination__link pagination__link--prev">
+ <a href="../install-a-code-editor/" class="pagination__link pagination__link--prev">
  <span class="pagination__direction">Previous</span>
  <span class="pagination__page-title">Install a code editor</span>
  </a>
- <a href="install-the-prototype-kit.html" class="pagination__link pagination__link--next">
+ <a href="../install-the-prototype-kit/" class="pagination__link pagination__link--next">
  <span class="pagination__direction">Next</span>
  <span class="pagination__page-title">Install the GOV.UK Prototype Kit</span>
  </a>

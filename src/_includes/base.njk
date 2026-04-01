@@ -24,7 +24,7 @@
   <div class="page-layout">
 
     <nav class="sidebar" aria-label="Guide navigation">
-      <a href="/" class="sidebar__home{% if page.url == '/' %} sidebar__link--active{% endif %}">← Guide home</a>
+      <a href="{{ '/' | url }}" class="sidebar__home{% if page.url == '/' %} sidebar__link--active{% endif %}">← Guide home</a>
 
       {% for section in sidebarNav %}
       <div class="sidebar__section">

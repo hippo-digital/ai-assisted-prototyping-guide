@@ -81,11 +81,11 @@ Use govuk-panel, govuk-panel__title, govuk-panel__body classes. Use govuk-headin
  </details>
 
  <nav class="pagination" aria-label="Pagination">
- <a href="create-a-check-answers-page.html" class="pagination__link pagination__link--prev">
+ <a href="../create-a-check-answers-page/" class="pagination__link pagination__link--prev">
  <span class="pagination__direction">Previous</span>
  <span class="pagination__page-title">Check answers page</span>
  </a>
- <a href="link-your-pages.html" class="pagination__link pagination__link--next">
+ <a href="../link-your-pages/" class="pagination__link pagination__link--next">
  <span class="pagination__direction">Next</span>
  <span class="pagination__page-title">Link your pages</span>
  </a>

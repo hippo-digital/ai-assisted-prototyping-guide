@@ -93,11 +93,11 @@ npx @google/gemini-cli</code></div>
  </details>
 
  <nav class="pagination" aria-label="Pagination">
- <a href="../setup/check-everything-works.html" class="pagination__link pagination__link--prev">
+ <a href="../../setup/check-everything-works/" class="pagination__link pagination__link--prev">
  <span class="pagination__direction">Previous</span>
  <span class="pagination__page-title">Check everything works</span>
  </a>
- <a href="create-a-start-page.html" class="pagination__link pagination__link--next">
+ <a href="../create-a-start-page/" class="pagination__link pagination__link--next">
  <span class="pagination__direction">Next</span>
  <span class="pagination__page-title">Create a start page</span>
  </a>

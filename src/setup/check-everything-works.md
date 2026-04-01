@@ -108,7 +108,7 @@ part: "Part 1: Get set up"
  <h2>You are ready to build</h2>
  <p>You have all the tools installed and working. In part 2, you will use Gemini CLI to build a complete 5-page prototype for a fictional 'Report a building issue' service.</p>
 
- <a href="../build/overview.html" class="button-start">
+ <a href="../../build/overview/" class="button-start">
  Start building your prototype
  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
  <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
@@ -116,7 +116,7 @@ part: "Part 1: Get set up"
  </a>
 
  <nav class="pagination" aria-label="Pagination">
- <a href="install-gemini-cli.html" class="pagination__link pagination__link--prev">
+ <a href="../install-gemini-cli/" class="pagination__link pagination__link--prev">
  <span class="pagination__direction">Previous</span>
  <span class="pagination__page-title">Install Gemini CLI</span>
  </a>

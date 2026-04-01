@@ -135,11 +135,11 @@ cd ~/prototypes</code></div>
  </div>
 
  <nav class="pagination" aria-label="Pagination">
- <a href="install-node.html" class="pagination__link pagination__link--prev">
+ <a href="../install-node/" class="pagination__link pagination__link--prev">
  <span class="pagination__direction">Previous</span>
  <span class="pagination__page-title">Install Node.js</span>
  </a>
- <a href="install-gemini-cli.html" class="pagination__link pagination__link--next">
+ <a href="../install-gemini-cli/" class="pagination__link pagination__link--next">
  <span class="pagination__direction">Next</span>
  <span class="pagination__page-title">Install Gemini CLI</span>
  </a>
