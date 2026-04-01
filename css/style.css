@@ -83,6 +83,13 @@ body {
   letter-spacing: 0.02em;
 }
 
+.site-header__logo:hover,
+.site-header__logo:focus,
+.site-header__logo:visited {
+  color: var(--white);
+  text-decoration: none;
+}
+
 .site-header__logo strong {
   font-weight: 500;
 }
