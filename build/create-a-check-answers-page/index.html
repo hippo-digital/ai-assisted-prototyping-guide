@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check answers page – Hippo</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo"><strong>Hippo</strong> Design Community</a>
+      <button class="menu-toggle" aria-label="Show navigation menu">
+        <div class="menu-toggle__icon"><span></span><span></span><span></span></div>
+        Menu
+      </button>
+      <span class="site-header__tag">Guide</span>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay"></div>
+
+  <div class="page-layout">
+
+    <nav class="sidebar" aria-label="Guide navigation">
+      <a href="/" class="sidebar__home">← Guide home</a>
+
+      
+      <div class="sidebar__section">
+        <p class="sidebar__heading">Part 1: Get set up</p>
+        <ul class="sidebar__list">
+          
+          <li>
+            <a href="/setup/what-youll-need/" class="sidebar__link">
+              What you&#39;ll need
+            </a>
+          </li>
+          
+          <li>
+            <a href="/setup/install-a-code-editor/" class="sidebar__link">
+              Install a code editor
+            </a>
+          </li>
+          
+          <li>
+            <a href="/setup/install-node/" class="sidebar__link">
+              Install Node.js
+            </a>
+          </li>
+          
+          <li>
+            <a href="/setup/install-the-prototype-kit/" class="sidebar__link">
+              Install the Prototype Kit
+            </a>
+          </li>
+          
+          <li>
+            <a href="/setup/install-gemini-cli/" class="sidebar__link">
+              Install Gemini CLI
+            </a>
+          </li>
+          
+          <li>
+            <a href="/setup/check-everything-works/" class="sidebar__link">
+              Check everything works
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      
+      <div class="sidebar__section">
+        <p class="sidebar__heading">Part 2: Build a prototype</p>
+        <ul class="sidebar__list">
+          
+          <li>
+            <a href="/build/overview/" class="sidebar__link">
+              What you&#39;ll build
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/create-a-start-page/" class="sidebar__link">
+              Create a start page
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/create-a-question-page/" class="sidebar__link">
+              Create a question page
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/create-a-second-question/" class="sidebar__link">
+              A second question page
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/create-a-check-answers-page/" class="sidebar__link sidebar__link--active">
+              Check answers page
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/create-a-confirmation-page/" class="sidebar__link">
+              Confirmation page
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/link-your-pages/" class="sidebar__link">
+              Link your pages
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/make-it-your-own/" class="sidebar__link">
+              Make it your own
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      
+    </nav>
+
+    <div class="main-content">
+      <div class="content-width">
+        <p><span class="caption">Part 2: Build a prototype</span></p>
+ <h1>Check answers page</h1>
+ <p>Before submitting, users should be able to review everything they have entered and change anything that is wrong. This is one of the most important patterns in GOV.UK service design – it prevents errors and builds user confidence.</p>
+ <p>The GOV.UK Design System calls this the <a href="https://design-system.service.gov.uk/patterns/check-answers/" target="_blank" rel="noopener noreferrer">check answers pattern</a>. It uses a summary list component to show each question and answer with a "Change" link next to each one.</p>
+ <h2>The prompt</h2>
+ <p>In Gemini CLI, paste this prompt:</p>
+ <div class="code-block"><code>Create a GOV.UK check answers page at app/views/check-answers.html.
+<p>The page should extend &quot;layouts/main.html&quot;.</p>
+<p>Include:</p>
+<ul>
+<li>An h1 heading: &quot;Check your answers&quot;</li>
+<li>A summary list using the govuk-summary-list component with these rows:
+Row 1: key &quot;Type of issue&quot;, value &quot;Structural problem&quot;, change link href=&quot;/issue-type&quot; with visually hidden text &quot;type of issue&quot;
+Row 2: key &quot;Floor or area&quot;, value &quot;2nd floor&quot;, change link href=&quot;/issue-location&quot; with visually hidden text &quot;floor or area&quot;
+Row 3: key &quot;Description&quot;, value &quot;There is a large crack in the exterior wall near the fire exit on the east side of the building.&quot;, change link href=&quot;/issue-location&quot; with visually hidden text &quot;description&quot;</li>
+<li>A heading below the summary list: &quot;Now send your report&quot;</li>
+<li>A paragraph: &quot;By submitting this report you confirm the details are correct to the best of your knowledge.&quot;</li>
+<li>A form with method=&quot;post&quot; action=&quot;/check-answers&quot; containing a &quot;Accept and send&quot; button using govuk-button</li>
+</ul>
+<p>Use the full govuk-summary-list markup including govuk-summary-list__row, govuk-summary-list__key, govuk-summary-list__value, and govuk-summary-list__actions. The change links should use govuk-link class and include a &lt;span class=&quot;govuk-visually-hidden&quot;&gt; for screen reader context.</code></div></p>
+ <p>Type <strong>yes</strong> when prompted.</p>
+ <h2>Check your browser</h2>
+ <p>Go to <code>http://localhost:3000/check-answers</code>.</p>
+ <div class="inset-text">
+ <p><strong>Checkpoint:</strong> You should see the heading "Check your answers", followed by a summary list showing three rows – each with a label on the left, the answer in the middle, and a "Change" link on the right. Below that, a paragraph and an "Accept and send" button.</p>
+ </div>
+ <details>
+ <summary>The summary list rows do not have a bottom border between them</summary>
+ <div class="details-body">
+ <p>The govuk-summary-list component adds borders automatically via CSS. If borders are missing, it may mean the GOV.UK Frontend stylesheet is not loading correctly, or the class names are wrong. Ask Gemini:</p>
+ <div class="code-block"><code>The summary list on app/views/check-answers.html is missing its row borders. Check that the govuk-summary-list, govuk-summary-list__row, govuk-summary-list__key, govuk-summary-list__value, and govuk-summary-list__actions classes are all present and correct.</code></div>
+ </div>
+ </details>
+ <details>
+ <summary>The "Change" links are not accessible</summary>
+ <div class="details-body">
+ <p>A "Change" link on its own is ambiguous for screen reader users – they cannot tell what they are changing. The GOV.UK pattern uses visually hidden text to add context. Each change link should look like this:</p>
+ <div class="code-block"><code>&lt;a href="/issue-type" class="govuk-link"&gt;Change&lt;span class="govuk-visually-hidden"&gt; type of issue&lt;/span&gt;&lt;/a&gt;</code></div>
+ <p>Sighted users see "Change". Screen reader users hear "Change type of issue". Ask Gemini to check all change links follow this pattern.</p>
+ </div>
+ </details>
+ <h2>Understanding what Gemini built</h2>
+ <details>
+ <summary>Why the answers are hardcoded</summary>
+ <div class="details-body">
+ <p>In this prototype, the check answers page shows hardcoded answers – they are written directly into the HTML. A real service would pull the user's actual answers from the session (the server-side store of what the user entered). The Prototype Kit can do this using session data, but for a basic prototype the hardcoded values are enough to test the layout and flow with users.</p>
+ <p>If you want dynamic values from your form inputs, ask Gemini: <em>"Update app/views/check-answers.html to show the values from the session data, using {{ data['issue-type'] }}, {{ data['issue-floor'] }}, and {{ data['issue-description'] }}."</em></p>
+ </div>
+ </details>
+ <details>
+ <summary>What govuk-visually-hidden does</summary>
+ <div class="details-body">
+ <p>The <code>govuk-visually-hidden</code> class hides text from sighted users but keeps it readable for screen readers. It uses a CSS technique that moves the element off-screen without using <code>display: none</code> (which would hide it from screen readers too). It is used whenever you need to add context that is already visually implied on screen – like change links, or icons that only make sense with a text label.</p>
+ </div>
+ </details>
+ <nav class="pagination" aria-label="Pagination">
+ <a href="create-a-second-question.html" class="pagination__link pagination__link--prev">
+ <span class="pagination__direction">Previous</span>
+ <span class="pagination__page-title">A second question page</span>
+ </a>
+ <a href="create-a-confirmation-page.html" class="pagination__link pagination__link--next">
+ <span class="pagination__direction">Next</span>
+ <span class="pagination__page-title">Confirmation page</span>
+ </a>
+ </nav>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/css/nav.js"></script>
+</body>
+</html>

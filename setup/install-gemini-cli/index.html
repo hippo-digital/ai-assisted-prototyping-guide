@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Install Gemini CLI – Hippo</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo"><strong>Hippo</strong> Design Community</a>
+      <button class="menu-toggle" aria-label="Show navigation menu">
+        <div class="menu-toggle__icon"><span></span><span></span><span></span></div>
+        Menu
+      </button>
+      <span class="site-header__tag">Guide</span>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay"></div>
+
+  <div class="page-layout">
+
+    <nav class="sidebar" aria-label="Guide navigation">
+      <a href="/" class="sidebar__home">← Guide home</a>
+
+      
+      <div class="sidebar__section">
+        <p class="sidebar__heading">Part 1: Get set up</p>
+        <ul class="sidebar__list">
+          
+          <li>
+            <a href="/setup/what-youll-need/" class="sidebar__link">
+              What you&#39;ll need
+            </a>
+          </li>
+          
+          <li>
+            <a href="/setup/install-a-code-editor/" class="sidebar__link">
+              Install a code editor
+            </a>
+          </li>
+          
+          <li>
+            <a href="/setup/install-node/" class="sidebar__link">
+              Install Node.js
+            </a>
+          </li>
+          
+          <li>
+            <a href="/setup/install-the-prototype-kit/" class="sidebar__link">
+              Install the Prototype Kit
+            </a>
+          </li>
+          
+          <li>
+            <a href="/setup/install-gemini-cli/" class="sidebar__link sidebar__link--active">
+              Install Gemini CLI
+            </a>
+          </li>
+          
+          <li>
+            <a href="/setup/check-everything-works/" class="sidebar__link">
+              Check everything works
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      
+      <div class="sidebar__section">
+        <p class="sidebar__heading">Part 2: Build a prototype</p>
+        <ul class="sidebar__list">
+          
+          <li>
+            <a href="/build/overview/" class="sidebar__link">
+              What you&#39;ll build
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/create-a-start-page/" class="sidebar__link">
+              Create a start page
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/create-a-question-page/" class="sidebar__link">
+              Create a question page
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/create-a-second-question/" class="sidebar__link">
+              A second question page
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/create-a-check-answers-page/" class="sidebar__link">
+              Check answers page
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/create-a-confirmation-page/" class="sidebar__link">
+              Confirmation page
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/link-your-pages/" class="sidebar__link">
+              Link your pages
+            </a>
+          </li>
+          
+          <li>
+            <a href="/build/make-it-your-own/" class="sidebar__link">
+              Make it your own
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+      
+    </nav>
+
+    <div class="main-content">
+      <div class="content-width">
+        <p><span class="caption">Part 1: Get set up</span></p>
+<h1>Install Gemini CLI</h1>
+<p>Gemini CLI is the AI tool you will use to build your prototype. It reads your project files, understands what you are building, and writes code based on your instructions.</p>
+<p>It is free to use with a Hippo Google account.</p>
+<h2>Step 1: Install Gemini CLI</h2>
+<p>Open a <strong>new</strong> terminal in VS Code. You need a second terminal because your prototype is still running in the first one.</p>
+<p>To open a new terminal, click the <strong>+</strong> icon in the terminal panel, or go to <strong>Terminal → New Terminal</strong>.</p>
+<p>In the new terminal, type:</p>
+<div class="code-block"><code>npm install -g @google/gemini-cli</code></div>
+<p>This installs Gemini CLI once on your computer. You only need to do this step once.</p>
+<details>
+  <summary>I get a 'permission denied' error</summary>
+  <div class="details-body">
+    <p>On Mac or Linux, add <code>sudo</code> before the command:</p>
+    <div class="code-block"><code>sudo npm install -g @google/gemini-cli</code></div>
+    <p>Enter your computer password when asked. The cursor will not move as you type – this is normal.</p>
+    <p>On Windows, try running VS Code as an administrator.</p>
+  </div>
+</details>
+<h2>Step 2: Start Gemini CLI</h2>
+<p>Navigate into your prototype project folder, then start Gemini CLI:</p>
+<div class="code-block"><code>cd ~/prototypes/report-building-issue
+npx @google/gemini-cli</code></div>
+<p>You will use <code>npx</code> every time you want to start Gemini CLI. This is different from the <code>npm install</code> command in Step 1, which you only run once. Think of <code>npm install</code> as putting a tool in your toolbox, and <code>npx</code> as picking it up and using it.</p>
+<p>Gemini CLI must be started from inside your prototype folder – this is how it knows which files to read and edit.</p>
+<p>The first time you run it, it will ask you to sign in with Google.</p>
+<h2>Step 3: Sign in with Google</h2>
+<p>When asked how to authenticate, select <strong>Sign in with Google</strong>.</p>
+<p>Your browser will open and ask you to sign in. Use your Hippo Google account rather than a personal account.</p>
+<p>After signing in, return to VS Code. Gemini CLI should now show a prompt where you can type instructions.</p>
+<div class="inset-text">
+  <p><strong>Checkpoint:</strong> You should see a Gemini CLI prompt in your terminal, ready for you to type. It may show the name of your project folder.</p>
+</div>
+<h2>Understanding the Gemini CLI interface</h2>
+<p>Once Gemini CLI is running, you will see a prompt at the top and a status bar along the bottom. The status bar tells you important information about your current session.</p>
+<p>The status bar shows 4 things:</p>
+<ul>
+<li><strong>workspace</strong> – the folder Gemini CLI is working in. This should show <code>~/prototypes/report-building-issue</code>. If it shows a different folder, Gemini is looking at the wrong project.</li>
+<li><strong>branch</strong> – the Git branch you are on. If you have not set up Git, this will be blank. For this guide, you do not need to worry about it.</li>
+<li><strong>sandbox</strong> – whether Gemini is running in a restricted mode. It will show <code>no sandbox</code> for most setups. This is normal.</li>
+<li><strong>model</strong> – which version of Gemini is being used. The guide works with any model shown here.</li>
+</ul>
+<div class="inset-text">
+  <p><strong>Check the workspace path before you start prompting.</strong> If the workspace does not show your prototype folder, stop and restart Gemini CLI from the correct folder. Run <code>cd ~/prototypes/report-building-issue</code> first, then <code>npx @google/gemini-cli</code>.</p>
+</div>
+<p>You will also see <strong>auto-accept edits</strong> at the top of the interface. Leave this off – it means Gemini will ask your permission before making any changes to files, which is a useful safety net while you are learning.</p>
+<h2>Step 4: Test it with a simple prompt</h2>
+<p>Type the following:</p>
+<div class="code-block"><code>What files and folders are in this project? Give me a brief summary.</code></div>
+<p>Gemini should describe the project structure, mentioning <code>app/views</code>, <code>app/assets</code>, and <code>package.json</code>.</p>
+<p>If it asks for permission to read files, type <strong>yes</strong>. Gemini always asks before reading or changing files.</p>
+<div class="inset-text">
+  <p><strong>Checkpoint:</strong> Gemini should have described your project files. If it mentioned the GOV.UK Prototype Kit or <code>app/views</code>, it can see your project and is ready to help you build.</p>
+</div>
+<details>
+  <summary>How Gemini CLI works with your files</summary>
+  <div class="details-body">
+    <p>Gemini CLI reads and writes files in the folder where you started it. This is why you must run <code>npx @google/gemini-cli</code> from inside your prototype folder.</p>
+    <p>When you give an instruction like "create a start page", it will:</p>
+    <ol>
+      <li>Look at the existing project structure to understand the conventions.</li>
+      <li>Write HTML files into the correct folders.</li>
+      <li>Ask your permission before creating or modifying any files.</li>
+    </ol>
+    <p>You can always say no, and you can undo changes with Ctrl+Z in your editor.</p>
+  </div>
+</details>
+<details>
+  <summary>Gemini CLI is free to use</summary>
+  <div class="details-body">
+    <p>It is free with a Google account, with generous usage limits (around 60 requests per minute and 1,000 per day). You are unlikely to hit them during prototyping.</p>
+    <p>Google maintains Gemini CLI as open source software.</p>
+  </div>
+</details>
+<nav class="pagination" aria-label="Pagination">
+  <a href="/setup/install-the-prototype-kit/" class="pagination__link pagination__link--prev">
+    <span class="pagination__direction">Previous</span>
+    <span class="pagination__page-title">Install the Prototype Kit</span>
+  </a>
+  <a href="/setup/check-everything-works/" class="pagination__link pagination__link--next">
+    <span class="pagination__direction">Next</span>
+    <span class="pagination__page-title">Check everything works</span>
+  </a>
+</nav>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/css/nav.js"></script>
+</body>
+</html>
