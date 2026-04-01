@@ -1,4 +1,4 @@
-# Hippo Assisted Prototyping Guide
+# AI Assisted Prototyping Guide
 
 A guide for Hippo's Design Community of Practice on using Gemini CLI with the GOV.UK Prototype Kit to build realistic prototypes faster.
 
