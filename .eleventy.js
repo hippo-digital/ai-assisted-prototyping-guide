@@ -1,14 +1,15 @@
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
 
   // Copy static assets straight through
   eleventyConfig.addPassthroughCopy("src/css");
 
   // Custom filter: is this page active?
-  eleventyConfig.addFilter("isActive", function(pageUrl, linkUrl) {
+  eleventyConfig.addFilter("isActive", function (pageUrl, linkUrl) {
     return pageUrl === linkUrl;
   });
 
   return {
+    pathPrefix: "/hippo-assisted-prototyping-guide/",
     dir: {
       input: "src",
       output: "_site",
