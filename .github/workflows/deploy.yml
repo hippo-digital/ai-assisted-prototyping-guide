@@ -8,6 +8,11 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    
+    # Grants write access to push to the gh-pages branch
+    permissions:
+      contents: write
+      
     steps:
       - uses: actions/checkout@v3
 
