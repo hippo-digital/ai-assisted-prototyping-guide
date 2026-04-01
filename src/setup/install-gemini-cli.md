@@ -12,6 +12,15 @@ Gemini CLI is the AI tool you will use to build your prototype. It reads your pr
 
 It is free to use with a Hippo Google account.
 
+<div class="inset-text">
+  <p>This guide is a sandbox to experiment with locally on your machine. You do not need an API key to follow it – signing in with your Hippo Google account is all you need, and performance will be fine for this level of use.</p>
+</div>
+
+<div class="warning-text">
+  <span class="warning-text__icon" aria-hidden="true">!</span>
+  <p>If you want to use Gemini CLI on a real project, there are a few things you need to sort out first. You will need the right permissions and should make sure your project lead, delivery/client partner, and client team are aware and on board. You will also need an API key for security and performance reasons. See the <a href="https://wiki.hippodigital.co.uk/working-at-hippo/policies/information-security/other/google-gemini-api-keys" target="_blank" rel="noopener noreferrer">Hippo wiki guidance on Google Gemini API keys</a> for information on the free tier versus paid service.</p>
+</div>
+
 ## Step 1: Install Gemini CLI
 
 Open a **new** terminal in VS Code. You need a second terminal because your prototype is still running in the first one.
@@ -20,17 +29,19 @@ To open a new terminal, click the **+** icon in the terminal panel, or go to **T
 
 In the new terminal, type:
 
-<div class="code-block"><code>npm install -g @google/gemini-cli</code></div>
+```
+npm install -g @google/gemini-cli
+```
 
 This installs Gemini CLI once on your computer. You only need to do this step once.
 
 <details>
   <summary>I get a 'permission denied' error</summary>
   <div class="details-body">
-    <p>On Mac or Linux, add <code>sudo</code> before the command:</p>
+    <p>On Mac or Linux, you need administrator access to install global packages. If your machine uses <strong>Admin By Request</strong>, request a temporary admin session first, then run the command with <code>sudo</code>:</p>
     <div class="code-block"><code>sudo npm install -g @google/gemini-cli</code></div>
     <p>Enter your computer password when asked. The cursor will not move as you type – this is normal.</p>
-    <p>On Windows, try running VS Code as an administrator.</p>
+    <p>On Windows, try running VS Code as an administrator via Admin By Request.</p>
   </div>
 </details>
 
@@ -38,8 +49,10 @@ This installs Gemini CLI once on your computer. You only need to do this step on
 
 Navigate into your prototype project folder, then start Gemini CLI:
 
-<div class="code-block"><code>cd ~/prototypes/report-building-issue
-npx @google/gemini-cli</code></div>
+```
+cd ~/prototypes/report-building-issue
+npx @google/gemini-cli
+```
 
 You will use `npx` every time you want to start Gemini CLI. This is different from the `npm install` command in Step 1, which you only run once. Think of `npm install` as putting a tool in your toolbox, and `npx` as picking it up and using it.
 
@@ -80,7 +93,9 @@ You will also see **auto-accept edits** at the top of the interface. Leave this 
 
 Type the following:
 
-<div class="code-block"><code>What files and folders are in this project? Give me a brief summary.</code></div>
+```
+What files and folders are in this project? Give me a brief summary.
+```
 
 Gemini should describe the project structure, mentioning `app/views`, `app/assets`, and `package.json`.
 

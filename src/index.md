@@ -3,7 +3,7 @@ layout: base.njk
 title: AI-assisted prototyping with Gemini CLI
 ---
 
-<h1>AI-assisted prototyping with Gemini CLI</h1>
+# AI-assisted prototyping with Gemini CLI
 
 <p class="lead">Learn how to use Gemini CLI alongside the GOV.UK Prototype Kit to build realistic prototypes faster – even if you've never written a line of code.</p>
 
@@ -19,7 +19,7 @@ The guide has 2 parts:
 
 ### Part 1: Get set up
 
-Install everything you need and check it all works. This takes about 30 minutes.
+Install everything you need and check it all works.
 
 <ol class="step-list">
   <li><a href="./setup/what-youll-need/">What you'll need</a></li>
@@ -32,7 +32,7 @@ Install everything you need and check it all works. This takes about 30 minutes.
 
 ### Part 2: Build your first prototype
 
-Use Gemini CLI to build a 5-page prototype step by step. This takes about an hour.
+Use Gemini CLI to build a 5-page prototype step by step.
 
 <ol class="step-list">
   <li><a href="./build/overview/">What you'll build</a></li>
