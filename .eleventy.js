@@ -19,7 +19,7 @@ module.exports = function (eleventyConfig) {
   });
 
   return {
-    pathPrefix: "/hippo-assisted-prototyping-guide/",
+    pathPrefix: "/ai-assisted-prototyping-guide/",
     dir: {
       input: "src",
       output: "_site",
