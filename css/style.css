@@ -624,6 +624,22 @@ th {
 }
 
 /* --- Section break --- */
+/* --- Screenshots --- */
+.screenshot {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border-colour);
+  margin: 1.5rem 0 0.5rem;
+}
+
+.screenshot-caption {
+  font-size: 0.85rem;
+  color: var(--mid-grey);
+  margin: 0 0 1.5rem;
+}
+
 .section-break {
   border: none;
   border-top: 1px solid var(--border-colour);
@@ -688,6 +704,12 @@ th {
 
   .menu-toggle {
     display: flex;
+    order: -1;
+    margin-right: auto;
+  }
+
+  .site-header__tag {
+    display: none;
   }
 
   .page-layout {
@@ -731,9 +753,17 @@ th {
 
   .pagination {
     flex-direction: column;
+    gap: 0;
+  }
+
+  .pagination__link {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-colour);
+    width: 100%;
   }
 
   .pagination__link--next {
     text-align: left;
+    margin-left: 0;
   }
 }

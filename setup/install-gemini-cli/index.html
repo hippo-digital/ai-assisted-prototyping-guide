@@ -134,6 +134,9 @@
 <p>Gemini CLI is the AI tool you will use to build your prototype. It reads your project files, understands what you are building, and writes code based on your instructions.</p>
 <p>It is free to use with a Hippo Google account.</p>
 <div class="inset-text">
+  <p><strong>Not the same as Kiro's built-in AI.</strong> Kiro has its own AI chat panel, but this guide does not use it. Gemini CLI runs in the terminal and works differently. If you type prompts into Kiro's chat instead, changes may not work as the guide describes. Make sure you are always in the terminal.</p>
+</div>
+<div class="inset-text">
   <p>This guide is a sandbox to experiment with locally on your machine. You do not need an API key to follow it – signing in with your Hippo Google account is all you need, and performance will be fine for this level of use.</p>
 </div>
 <div class="warning-text">
@@ -141,37 +144,41 @@
   <p>If you want to use Gemini CLI on a real project, there are a few things you need to sort out first. You will need the right permissions and should make sure your project lead, delivery/client partner, and client team are aware and on board. You will also need an API key for security and performance reasons. See the <a href="https://wiki.hippodigital.co.uk/working-at-hippo/policies/information-security/other/google-gemini-api-keys" target="_blank" rel="noopener noreferrer">Hippo wiki guidance on Google Gemini API keys</a> for information on the free tier versus paid service.</p>
 </div>
 <h2>Step 1: Install Gemini CLI</h2>
-<p>Open a <strong>new</strong> terminal in VS Code. You need a second terminal because your prototype is still running in the first one.</p>
+<p>Open a <strong>new</strong> terminal in Kiro. You need a second terminal because your prototype is still running in the first one.</p>
 <p>To open a new terminal, click the <strong>+</strong> icon in the terminal panel, or go to <strong>Terminal → New Terminal</strong>.</p>
 <p>In the new terminal, type:</p>
 <div class="code-block"><code>npm install -g @google/gemini-cli
-</code></div>
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <p>This installs Gemini CLI once on your computer. You only need to do this step once.</p>
 <details>
   <summary>I get a 'permission denied' error</summary>
   <div class="details-body">
-    <p>On Mac or Linux, you need administrator access to install global packages. If your machine uses <strong>Admin By Request</strong>, request a temporary admin session first, then run the command with <code>sudo</code>:</p>
-    <div class="code-block"><code>sudo npm install -g @google/gemini-cli</code></div>
+    <p><strong>Mac or Linux:</strong> You need administrator access to install global packages. If your machine uses <strong>Admin By Request</strong>, request a temporary admin session first, then run the command with <code>sudo</code>:</p>
+    <div class="code-block"><code>sudo npm install -g @google/gemini-cli</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
     <p>Enter your computer password when asked. The cursor will not move as you type – this is normal.</p>
-    <p>On Windows, try running VS Code as an administrator via Admin By Request.</p>
+    <p><strong>Windows:</strong> Open Kiro as an administrator via <strong>Admin By Request</strong>, then run the original install command again.</p>
   </div>
 </details>
 <h2>Step 2: Start Gemini CLI</h2>
-<p>Navigate into your prototype project folder, then start Gemini CLI:</p>
+<p>First, navigate into your prototype project folder. Type the following and press Enter:</p>
 <div class="code-block"><code>cd ~/prototypes/report-building-issue
-npx @google/gemini-cli
-</code></div>
-<p>You will use <code>npx</code> every time you want to start Gemini CLI. This is different from the <code>npm install</code> command in Step 1, which you only run once. Think of <code>npm install</code> as putting a tool in your toolbox, and <code>npx</code> as picking it up and using it.</p>
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <p>Gemini CLI must be started from inside your prototype folder – this is how it knows which files to read and edit.</p>
+<p>Then start Gemini CLI by typing the following and pressing Enter:</p>
+<div class="code-block"><code>npx @google/gemini-cli
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
+<p>You will use <code>npx</code> every time you want to start Gemini CLI. This is different from the <code>npm install</code> command in Step 1, which you only run once. Think of <code>npm install</code> as putting a tool in your toolbox, and <code>npx</code> as picking it up and using it.</p>
 <p>The first time you run it, it will ask you to sign in with Google.</p>
 <h2>Step 3: Sign in with Google</h2>
 <p>When asked how to authenticate, select <strong>Sign in with Google</strong>.</p>
 <p>Your browser will open and ask you to sign in. Use your Hippo Google account rather than a personal account.</p>
-<p>After signing in, return to VS Code. Gemini CLI should now show a prompt where you can type instructions.</p>
+<p>After signing in, return to Kiro. Gemini CLI should now show a prompt where you can type instructions.</p>
 <div class="inset-text">
   <p><strong>Checkpoint:</strong> You should see a Gemini CLI prompt in your terminal, ready for you to type. It may show the name of your project folder.</p>
 </div>
 <h2>Understanding the Gemini CLI interface</h2>
+<img src="/ai-assisted-prototyping-guide/images/gemini-cli-interface.png" alt="The Gemini CLI interface showing the input prompt, status bar with workspace path, branch, sandbox and model information" class="screenshot">
+<p class="screenshot-caption">The Gemini CLI interface, with the input prompt at the top and the status bar along the bottom.</p>
 <p>Once Gemini CLI is running, you will see a prompt at the top and a status bar along the bottom. The status bar tells you important information about your current session.</p>
 <p>The status bar shows 4 things:</p>
 <ul>
@@ -187,9 +194,9 @@ npx @google/gemini-cli
 <h2>Step 4: Test it with a simple prompt</h2>
 <p>Type the following:</p>
 <div class="code-block"><code>What files and folders are in this project? Give me a brief summary.
-</code></div>
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <p>Gemini should describe the project structure, mentioning <code>app/views</code>, <code>app/assets</code>, and <code>package.json</code>.</p>
-<p>If it asks for permission to read files, type <strong>yes</strong>. Gemini always asks before reading or changing files.</p>
+<p>Gemini will ask for permission before reading your files. Use the <strong>arrow keys</strong> to select <strong>Allow once</strong>, then press <strong>Enter</strong> to confirm. Gemini always asks before reading or changing files.</p>
 <div class="inset-text">
   <p><strong>Checkpoint:</strong> Gemini should have described your project files. If it mentioned the GOV.UK Prototype Kit or <code>app/views</code>, it can see your project and is ready to help you build.</p>
 </div>
@@ -203,7 +210,7 @@ npx @google/gemini-cli
       <li>Write HTML files into the correct folders.</li>
       <li>Ask your permission before creating or modifying any files.</li>
     </ol>
-    <p>You can always say no, and you can undo changes with Ctrl+Z in your editor.</p>
+    <p>You can always say no, and you can undo changes with <strong>Cmd + Z</strong> (Mac) or <strong>Ctrl + Z</strong> (Windows) in your editor.</p>
   </div>
 </details>
 <details>

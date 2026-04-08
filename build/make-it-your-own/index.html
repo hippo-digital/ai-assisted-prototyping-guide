@@ -133,153 +133,48 @@
 <h1>Make it your own</h1>
 <p>You have built a working 5-page GOV.UK prototype using only plain English prompts. The skills you have used here – writing clear prompts, checking output, and iterating – apply to any project.</p>
 <p>This page gives you prompts to take the prototype further, adapt it to your own service, and go deeper with Gemini CLI.</p>
-<h2>Change the service content</h2>
-<p>The quickest way to adapt this prototype to your own work is to change the service name, questions, and answers. Describe what you want in plain English:</p>
-<div class="code-block"><code>Rename the service throughout the prototype from &quot;Report a building issue&quot; to &quot;Request a parking permit&quot;. Update the start page heading, the service name in the config, and all page titles accordingly.
-</code></div>
-<div class="code-block"><code>Replace the radio button options on app/views/issue-type.html with: &quot;Resident permit&quot;, &quot;Visitor permit&quot;, &quot;Business permit&quot;, &quot;Disabled bay permit&quot;.
-</code></div>
+<p>Work through the sections below in order. Get everything working with the &quot;Report a building issue&quot; content first, then swap in your own service content at the end — that way each prompt runs against the known prototype and the results are predictable.</p>
 <h2>Add another question</h2>
 <p>Real services often need more information. Try adding a page that asks for contact details. Run these two prompts in order:</p>
 <p>First, create the page:</p>
-<div class="code-block"><code>Create a new question page at app/views/contact-details.html.
-
-The page should extend &quot;layouts/main.html&quot;.
-
-Include:
-- A back link pointing to /issue-location using the govuk-back-link class
-- A form with method=&quot;post&quot; action=&quot;/contact-details&quot;
-- An h1 heading: &quot;Your contact details&quot;
-- A text input for full name (label: &quot;Full name&quot;, name=&quot;full-name&quot;, id=&quot;full-name&quot;)
-- An email input for email address (label: &quot;Email address&quot;, hint: &quot;We'll only use this to contact you about your report&quot;, name=&quot;email-address&quot;, id=&quot;email-address&quot;, type=&quot;email&quot;)
-- A &quot;Continue&quot; button using the govuk-button class
-
-Wrap each input in a govuk-form-group div. Use govuk-input for both inputs. Include govuk-hint for the hint text.
-</code></div>
+<div class="code-block"><code>Create a new GOV.UK question page that asks for the user's contact details. The page should have the heading &quot;Your contact details&quot; and include two fields: one for their full name, and one for their email address with the hint text &quot;We'll only use this to contact you about your report&quot;. Include a back link to the previous page and a Continue button. Follow GOV.UK Frontend patterns throughout.
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <p>Then add it to the journey:</p>
-<div class="code-block"><code>Update app/routes.js to insert /contact-details between /issue-location and /check-answers.
-
-Change the POST /issue-location route to redirect to /contact-details instead of /check-answers.
-
-Add a new POST route for /contact-details that redirects to /check-answers.
-</code></div>
+<div class="code-block"><code>Update the prototype journey so the contact details page sits between the issue location page and the check answers page.
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <div class="inset-text">
 <p>If you add the contact details page, also run the updated prompts below for error handling, session data, and change mode – each one includes contact details as well as the other question pages.</p>
 </div>
 <h2>Add error handling</h2>
 <p>A prototype that shows error states is more useful for research – it lets you test how users respond to mistakes. This prompt adds validation to all pages that require user input. If you have added the contact details page, it covers that too:</p>
-<div class="code-block"><code>Add validation to the &quot;Report a building issue&quot; prototype for all pages that require user input.
+<div class="code-block"><code>Add error handling to the &quot;Report a building issue&quot; prototype so that users see a clear error message if they try to continue without completing a required field. The validation must happen in the browser — the page should not submit if required fields are empty.
 
-For app/routes.js, update the POST routes as follows:
+On the issue type page: if the user clicks Continue without selecting a radio button, stop the form from submitting and show an error on that same page. Do not redirect to another page.
 
-POST /issue-type: if no radio button is selected (req.body['issue-type'] is empty), redirect back to /issue-type with an error. Otherwise redirect to /issue-location as normal.
+On the issue location page: if the user clicks Continue with either field left empty, stop the form from submitting and show an error for each empty field on that same page.
 
-POST /issue-location: if either the issue-floor or issue-description fields are empty, redirect back to /issue-location with errors for each empty field. Otherwise redirect to the next page as normal.
+If there is a contact details page: if the user clicks Continue with either field left empty, stop the form from submitting and show an error for each empty field on that same page.
 
-POST /contact-details (if you have added this page): if either the full-name or email-address fields are empty, redirect back to /contact-details with errors for each empty field. Otherwise redirect to /check-answers.
-
-Pass errors back to the page using the session: req.session.errors = { fieldName: 'Error message' } before redirecting.
-
-For each HTML page, update the template to conditionally show errors when they are present:
-
-On app/views/issue-type.html:
-- Show a govuk-error-summary at the top of the content block if an error is present
-- Add govuk-form-group--error to the form group wrapper
-- Add a govuk-error-message element between the fieldset legend and the radios
-
-On app/views/issue-location.html:
-- Show a govuk-error-summary at the top of the content block if any errors are present
-- For each field with an error, add govuk-form-group--error to its wrapper and a govuk-error-message below its label
-
-On app/views/contact-details.html (if it exists):
-- Show a govuk-error-summary at the top of the content block if any errors are present
-- For each field with an error, add govuk-form-group--error to its wrapper and a govuk-error-message below its label
-
-Follow GOV.UK Frontend error patterns exactly. Error messages should start with &quot;Select&quot; for radio buttons and &quot;Enter&quot; for text inputs.
-</code></div>
+Use the GOV.UK error message pattern throughout: show an error summary at the top of the page listing all the errors, and show an inline error message next to each field that has a problem. Error messages for radio buttons should start with &quot;Select&quot;. Error messages for empty text fields should start with &quot;Enter&quot;.
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <h2>Show session data on the check answers page</h2>
-<p>Make the check answers page show what the user actually entered, rather than hardcoded values. If you have added the contact details page, include those fields too:</p>
-<div class="code-block"><code>Update app/views/check-answers.html to show the real values from session data.
+<p>Make the check answers page show what the user actually entered, rather than hardcoded placeholder values. If you have added the contact details page, include those fields too:</p>
+<div class="code-block"><code>Update the check answers page at app/views/check-answers.html so that the summary list shows the actual answers the user entered during the journey, rather than the hardcoded placeholder text currently in the page.
 
-Replace the hardcoded answers with these session values in the summary list:
-- Type of issue: {{ data['issue-type'] }}
-- Floor or area: {{ data['issue-floor'] }}
-- Description: {{ data['issue-description'] }}
-
-If you have added a contact details page, also add two new rows to the summary list:
-- Full name: {{ data['full-name'] }}, with a Change link to /contact-details?change=true
-- Email address: {{ data['email-address'] }}, with a Change link to /contact-details?change=true
-</code></div>
+If you have added a contact details page, also add two new rows to the summary list for full name and email address, with Change links that go back to the contact details page.
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <h2>Return to check answers after making a change</h2>
 <p>At the moment, if a user clicks &quot;Change&quot; on the check answers page and updates their answer, they are sent back through the full journey rather than straight back to check answers. This prompt fixes that. If you have added the contact details page, it covers that too:</p>
-<p>Note that changing the type of issue is handled differently – because the location and description may need updating too if the issue type changes, the user is routed through the location page before returning to check answers. Changing location or contact details returns directly to check answers.</p>
-<div class="code-block"><code>Implement a &quot;change mode&quot; pattern so that when a user clicks a Change link on the check answers page, they return to check answers after updating their answer.
+<div class="code-block"><code>Update the prototype so that when a user clicks a &quot;Change&quot; link on the check answers page and updates their answer, they are taken straight back to the check answers page rather than continuing through the rest of the journey.
 
-Step 1 — Update app/views/check-answers.html:
-Add ?change=true to each Change link href. For example:
-&lt;a href=&quot;/issue-type?change=true&quot;&gt;Change&lt;span class=&quot;govuk-visually-hidden&quot;&gt; type of issue&lt;/span&gt;&lt;/a&gt;
-&lt;a href=&quot;/issue-location?change=true&quot;&gt;Change&lt;span class=&quot;govuk-visually-hidden&quot;&gt; floor or area&lt;/span&gt;&lt;/a&gt;
+When a user arrives at a question page via a Change link, pre-fill the form fields with whatever they entered previously, so they can see and edit their existing answer rather than starting from a blank form.
 
-Step 2 — Update app/routes.js with GET and POST routes for each question page.
+If the user changes their type of issue, take them through the issue location page first before returning to check answers, in case they also need to update their location or description.
 
-For /issue-type, changing the issue type should route through /issue-location first so the user can update their location and description if needed, before returning to check answers. Use a separate session flag for this:
+If the user changes their location, description, or contact details, take them straight back to check answers after they submit the updated answer.
 
-router.get('/issue-type', function(req, res) {
-  if (req.query.change) {
-    req.session.data['changeViaLocation'] = true
-  }
-  res.render('issue-type')
-})
-
-router.post('/issue-type', function(req, res) {
-  if (req.session.data['changeViaLocation']) {
-    res.redirect('/issue-location')
-  } else {
-    res.redirect('/issue-location')
-  }
-})
-
-For /issue-location, if the user arrived via a change to issue-type, clear the flag and redirect to check-answers after. If they arrived directly from the check answers Change link, also redirect to check-answers:
-
-router.get('/issue-location', function(req, res) {
-  if (req.query.change) {
-    req.session.data['change'] = true
-  }
-  res.render('issue-location')
-})
-
-router.post('/issue-location', function(req, res) {
-  if (req.session.data['changeViaLocation']) {
-    req.session.data['changeViaLocation'] = false
-    res.redirect('/check-answers')
-  } else if (req.session.data['change']) {
-    req.session.data['change'] = false
-    res.redirect('/check-answers')
-  } else {
-    res.redirect('/check-answers')
-  }
-})
-
-If you have added a contact details page, apply the standard direct-return pattern for /contact-details:
-
-router.get('/contact-details', function(req, res) {
-  if (req.query.change) {
-    req.session.data['change'] = true
-  }
-  res.render('contact-details')
-})
-
-router.post('/contact-details', function(req, res) {
-  if (req.session.data['change']) {
-    req.session.data['change'] = false
-    res.redirect('/check-answers')
-  } else {
-    res.redirect('/check-answers')
-  }
-})
-
-Do not remove the existing POST routes — replace them with these updated versions.
-</code></div>
+Do not remove any existing routes.
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <h3>Create a GEMINI.md file for standing instructions</h3>
 <p>You can give Gemini a set of standing instructions so you do not have to repeat them every time. Create a file called <code>GEMINI.md</code> in your project root and Gemini will read it at the start of every session.</p>
 <div class="code-block"><code>Create a file called GEMINI.md in the project root with the following content:
@@ -297,16 +192,51 @@ This is a GOV.UK Prototype Kit project for a service called &quot;Report a build
 - All form pages must have a back link and a Continue button
 - Error messages must follow the GOV.UK error message pattern
 - Content must be in plain English, sentence case, no jargon
-</code></div>
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <p>After creating this file, Gemini will apply these rules automatically to every prompt in that project.</p>
 <h3>Ask Gemini to explain what it built</h3>
 <p>If you want to understand what was built, ask Gemini to explain it. This is a good way to build your knowledge gradually:</p>
 <div class="code-block"><code>Explain the HTML you just wrote for the check answers page. What does each GOV.UK class do, and why is the summary list structured the way it is?
-</code></div>
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <h3>Use Gemini to review your work</h3>
-<p>Gemini can critique its own output against GOV.UK standards:</p>
-<div class="code-block"><code>Review all the pages in app/views for GOV.UK Design System compliance. Check for: correct heading hierarchy, proper use of fieldsets for radio groups, presence of back links on all question pages, correct button classes, and any accessibility issues you can identify.
-</code></div>
+<p>Gemini can review your prototype against GOV.UK standards and flag things worth discussing with your team before you move into build:</p>
+<div class="code-block"><code>Review all the pages in app/views and give me feedback in three areas:
+
+1. GOV.UK Design System compliance — check for correct heading hierarchy, proper use of fieldsets for radio groups, presence of back links on all question pages, correct button classes, and any accessibility issues you can identify.
+
+2. Content design — check the page content against GOV.UK service manual guidance. Flag any language that is not plain English, any labels or hint text that could be clearer, any error messages that do not follow the recommended pattern, and anything that does not match the GOV.UK style guide.
+
+3. Engineering considerations — identify anything in the prototype that an engineer would need to think about before building this for real. For example: any validation that is only handled client-side and would need server-side equivalents, any session data assumptions, any routing logic that could break under edge cases, and any patterns that may need discussion before they are implemented.
+
+Present the findings as a list under each heading so they are easy to share with a delivery team.
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
+<h2>Create a prototype index page</h2>
+<p>As a service evolves, you will build multiple versions of your prototype — each one tested, refined, and iterated on. An index page gives your team a single place to see every version, understand what changed and why, and launch the right prototype for a research session.</p>
+<p>Run this prompt to create one:</p>
+<div class="code-block"><code>Create or update the index.html page in app/views so it works as a prototype index — a page that lists versions of the prototype with key information about each one.
+
+Use the following dummy content for three versions:
+
+Version 3 — progress: In research
+Description: Simplified the issue type question into two steps based on round 2 findings. Removed the &quot;Something else&quot; option after it caused confusion in 4 out of 6 sessions.
+Research: Link to Maze report (use # as the href)
+Analytics: Link to GA4 dashboard (use # as the href)
+Launch button: links to /start
+
+Version 2 — progress: Research complete
+Description: Added a contact details page and moved confirmation reference number above the fold. Tested with 6 participants in round 2.
+Research: Link to Maze report (use # as the href)
+Analytics: Link to GA4 dashboard (use # as the href)
+Launch button: links to /start
+
+Version 1 — progress: Research complete
+Description: First prototype of the end-to-end journey. Covered issue type, location, check answers, and confirmation. Tested with 5 participants in round 1.
+Research: Link to Maze report (use # as the href)
+Analytics: not available
+Launch button: links to /start
+
+Show the most recent version first. Use GOV.UK Frontend components and classes throughout — tags for the progress state, a summary list or card layout for the details, and a button for the launch link. Do not write custom CSS.
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <hr class="section-break section-break--thick">
 <h2>You've finished the guide</h2>
 <p>You now have a working GOV.UK prototype and a workflow you can apply to any project. The prompts in this guide are yours to adapt – change the content, the questions, the service name, and the journey structure to fit whatever you are designing.</p>

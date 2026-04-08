@@ -147,12 +147,8 @@ Include:
 - A &quot;Continue&quot; button using the govuk-button class
 
 Each input should be wrapped in a govuk-form-group div. Use govuk-input for the text input and govuk-textarea for the textarea. Include govuk-hint for the hint text and govuk-label for each label.
-</code></div>
-<p>Type <strong>yes</strong> when Gemini asks permission to create the file.</p>
-<div class="warning-text">
-<span class="warning-text__icon" aria-hidden="true">!</span>
-<p>Check that Gemini has not added a hidden CSRF input to the form. If you see the line <code>&lt;input type="hidden" name="_csrf" value="{{ csrfToken }}"&gt;</code> in the file, ask Gemini to remove it. The Prototype Kit does not use CSRF tokens and this line will cause form submissions to skip pages silently.</p>
-</div>
+</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
+<p>Gemini will show you the file it wants to create and ask for your permission. Use the <strong>arrow keys</strong> to select <strong>Allow once</strong>, then press <strong>Enter</strong> to confirm.</p>
 <h2>Check your browser</h2>
 <p>Go to <code>http://localhost:3000/issue-location</code>.</p>
 <div class="inset-text">
@@ -162,14 +158,14 @@ Each input should be wrapped in a govuk-form-group div. Use govuk-input for the 
 <summary>There is no hint text visible</summary>
 <div class="details-body">
 <p>Hint text in GOV.UK Frontend uses the <code>govuk-hint</code> class and must be placed between the label and the input, not after. Ask Gemini:</p>
-<div class="code-block"><code>On app/views/issue-location.html, the hint text is not showing. Make sure each hint uses the govuk-hint class and is placed between the label and the input inside the govuk-form-group.</code></div>
+<div class="code-block"><code>On app/views/issue-location.html, the hint text is not showing. Make sure each hint uses the govuk-hint class and is placed between the label and the input inside the govuk-form-group.</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 </div>
 </details>
 <details>
 <summary>The textarea is too small or too large</summary>
 <div class="details-body">
 <p>The <code>rows</code> attribute on a textarea controls its height. You can ask Gemini to adjust it:</p>
-<div class="code-block"><code>Update the textarea on app/views/issue-location.html to have rows="8" to give users more space to write.</code></div>
+<div class="code-block"><code>Update the textarea on app/views/issue-location.html to have rows="8" to give users more space to write.</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 </div>
 </details>
 <h2>Understanding what Gemini built</h2>
@@ -183,7 +179,7 @@ Each input should be wrapped in a govuk-form-group div. Use govuk-input for the 
 <summary>Adding validation so fields cannot be left empty</summary>
 <div class="details-body">
 <p>Validation in the Prototype Kit is handled in <code>app/routes.js</code> – the server checks the form data before deciding where to send the user. Ask Gemini to handle this after you have set up routing:</p>
-<div class="code-block"><code>In app/routes.js, add validation for the /issue-location form. If either the issue-floor or issue-description fields are empty, redirect back to /issue-location and show an error message on the relevant field using GOV.UK error message markup.</code></div>
+<div class="code-block"><code>In app/routes.js, add validation for the /issue-location form. If either the issue-floor or issue-description fields are empty, redirect back to /issue-location and show an error message on the relevant field using GOV.UK error message markup.</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <p>This is an advanced step – the basic prototype works fine without it.</p>
 </div>
 </details>
