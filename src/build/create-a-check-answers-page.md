@@ -34,7 +34,7 @@ Include:
 Use the full govuk-summary-list markup including govuk-summary-list__row, govuk-summary-list__key, govuk-summary-list__value, and govuk-summary-list__actions. The change links should use govuk-link class and include a <span class="govuk-visually-hidden"> for screen reader context.
 ```
 
-Type **yes** when prompted.
+Gemini will show you the file it wants to create and ask for your permission. Use the **arrow keys** to select **Allow once**, then press **Enter** to confirm.
 
 ## Check your browser
 
@@ -48,7 +48,7 @@ Go to `http://localhost:3000/check-answers`.
 <summary>The summary list rows do not have a bottom border between them</summary>
 <div class="details-body">
 <p>The govuk-summary-list component adds borders automatically via CSS. If borders are missing, it may mean the GOV.UK Frontend stylesheet is not loading correctly, or the class names are wrong. Ask Gemini:</p>
-<div class="code-block"><code>The summary list on app/views/check-answers.html is missing its row borders. Check that the govuk-summary-list, govuk-summary-list__row, govuk-summary-list__key, govuk-summary-list__value, and govuk-summary-list__actions classes are all present and correct.</code></div>
+<div class="code-block"><code>The summary list on app/views/check-answers.html is missing its row borders. Check that the govuk-summary-list, govuk-summary-list__row, govuk-summary-list__key, govuk-summary-list__value, and govuk-summary-list__actions classes are all present and correct.</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 </div>
 </details>
 
@@ -56,7 +56,7 @@ Go to `http://localhost:3000/check-answers`.
 <summary>The "Change" links are not accessible</summary>
 <div class="details-body">
 <p>A "Change" link on its own is ambiguous for screen reader users – they cannot tell what they are changing. The GOV.UK pattern uses visually hidden text to add context. Each change link should look like this:</p>
-<div class="code-block"><code>&lt;a href="/issue-type" class="govuk-link"&gt;Change&lt;span class="govuk-visually-hidden"&gt; type of issue&lt;/span&gt;&lt;/a&gt;</code></div>
+<div class="code-block"><code>&lt;a href="/issue-type" class="govuk-link"&gt;Change&lt;span class="govuk-visually-hidden"&gt; type of issue&lt;/span&gt;&lt;/a&gt;</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <p>Sighted users see "Change". Screen reader users hear "Change type of issue". Ask Gemini to check all change links follow this pattern.</p>
 </div>
 </details>

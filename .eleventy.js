@@ -2,6 +2,7 @@ module.exports = function (eleventyConfig) {
 
   // Copy static assets straight through
   eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/images");
 
   // Custom filter: is this page active?
   eleventyConfig.addFilter("isActive", function (pageUrl, linkUrl) {
@@ -14,7 +15,7 @@ module.exports = function (eleventyConfig) {
     md.renderer.rules.fence = function (tokens, idx) {
       const token = tokens[idx];
       const escaped = md.utils.escapeHtml(token.content);
-      return `<div class="code-block"><code>${escaped}</code></div>\n`;
+      return `<div class="code-block"><code>${escaped}</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>\n`;
     };
   });
 

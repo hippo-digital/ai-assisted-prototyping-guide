@@ -14,7 +14,7 @@ You will not use Node.js directly – it runs in the background.
 
 ## Step 1: Check if you already have Node.js
 
-In the VS Code terminal, type the following and press Enter:
+In the Kiro terminal, type the following and press Enter:
 
 ```
 node --version
@@ -37,13 +37,13 @@ Go to [nodejs.org](https://nodejs.org/) and download the **LTS** (Long Term Supp
 
 Open the downloaded file and follow the installer. Accept all the default settings.
 
-## Step 4: Restart VS Code
+## Step 4: Restart Kiro
 
-After installing Node.js, close VS Code completely and reopen it. This makes sure VS Code can find the newly installed Node.js.
+After installing Node.js, close Kiro completely and reopen it. This makes sure Kiro can find the newly installed Node.js.
 
 ## Step 5: Check it worked
 
-Open the terminal in VS Code again and type:
+Open the terminal in Kiro again and type:
 
 ```
 node --version
@@ -58,7 +58,7 @@ node --version
 <div class="details-body">
 <p>Try these things:</p>
 <ul>
-<li>Make sure you fully closed and reopened VS Code (not just the tab – the whole application).</li>
+<li>Make sure you fully closed and reopened Kiro (not just the tab – the whole application).</li>
 <li>On Windows, try opening a new terminal via <strong>Terminal</strong> → <strong>New Terminal</strong>.</li>
 <li>On Mac with Homebrew, open a new terminal window for the changes to take effect.</li>
 <li>Try restarting your computer.</li>

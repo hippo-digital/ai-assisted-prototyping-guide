@@ -10,39 +10,39 @@ part: "Part 1: Get set up"
 
 A code editor is where you will see the files in your prototype. You will also use its built-in terminal to run Gemini CLI.
 
-We recommend Visual Studio Code (VS Code). It is free and works on Mac, Windows, and Linux.
+We recommend Kiro. It is free, works on Mac, Windows, and Linux, and is built for AI-assisted development.
 
-## Step 1: Download VS Code
+## Step 1: Download Kiro
 
-Go to [code.visualstudio.com](https://code.visualstudio.com/) and download the version for your computer.
+Go to [kiro.dev](https://kiro.dev/) and download the version for your computer.
 
 ## Step 2: Install it
 
 Open the downloaded file and follow the installation instructions. Accept the default settings – you do not need to change anything.
 
-## Step 3: Open VS Code
+## Step 3: Open Kiro
 
-Once installed, open VS Code. You should see a welcome screen.
+Once installed, open Kiro. You should see a welcome screen.
 
 <div class="inset-text">
-<p><strong>Checkpoint:</strong> You should now have VS Code open on your screen. If you see a welcome tab or an empty editor window, you are ready to move on.</p>
+<p><strong>Checkpoint:</strong> You should now have Kiro open on your screen. If you see a welcome tab or an empty editor window, you are ready to move on.</p>
 </div>
 
-## Step 4: Open the terminal in VS Code
+## Step 4: Open the terminal in Kiro
 
 You will use the terminal a lot in this guide, so it is worth learning how to open it now.
 
-In VS Code, press:
+In Kiro, press:
 
 - **Mac:** Ctrl + ` (the backtick key, usually above the tab key)
-- **Windows:** Ctrl + ' (the apostrophe key)
+- **Windows:** Ctrl + ` (the same key — usually above Tab, to the left of 1)
 
 Or go to the menu: **Terminal** → **New Terminal**.
 
-A panel should appear at the bottom of the VS Code window. This is your terminal.
+A panel should appear at the bottom of the Kiro window. This is your terminal.
 
 <div class="inset-text">
-<p><strong>Checkpoint:</strong> You should see a terminal panel at the bottom of VS Code with a blinking cursor. It might show your username and computer name. This is normal.</p>
+<p><strong>Checkpoint:</strong> You should see a terminal panel at the bottom of Kiro with a blinking cursor. It might show your username and computer name. This is normal.</p>
 </div>
 
 <details>

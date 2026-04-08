@@ -34,7 +34,7 @@ Include:
 Use govuk-panel, govuk-panel__title, govuk-panel__body classes. Use govuk-heading-m for the "What happens next" heading. Use govuk-body for paragraphs and govuk-link for links.
 ```
 
-Type **yes** when prompted.
+Gemini will show you the file it wants to create and ask for your permission. Use the **arrow keys** to select **Allow once**, then press **Enter** to confirm.
 
 ## Check your browser
 
@@ -48,7 +48,7 @@ Go to `http://localhost:3000/confirmation`.
 <summary>The panel is not green</summary>
 <div class="details-body">
 <p>The green panel comes from the <code>govuk-panel--confirmation</code> class in addition to <code>govuk-panel</code>. Ask Gemini:</p>
-<div class="code-block"><code>The confirmation panel on app/views/confirmation.html is not green. Make sure the panel div has both the govuk-panel and govuk-panel--confirmation classes.</code></div>
+<div class="code-block"><code>The confirmation panel on app/views/confirmation.html is not green. Make sure the panel div has both the govuk-panel and govuk-panel--confirmation classes.</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 </div>
 </details>
 
@@ -56,7 +56,7 @@ Go to `http://localhost:3000/confirmation`.
 <summary>The reference number is not on its own line</summary>
 <div class="details-body">
 <p>The panel body should include a line break between the label text and the reference number. Ask Gemini:</p>
-<div class="code-block"><code>On the confirmation panel in app/views/confirmation.html, put the reference number on a new line below "Your reference number", with the number in bold. Use a &lt;br&gt; and &lt;strong&gt; tags inside the govuk-panel__body element.</code></div>
+<div class="code-block"><code>On the confirmation panel in app/views/confirmation.html, put the reference number on a new line below "Your reference number", with the number in bold. Use a &lt;br&gt; and &lt;strong&gt; tags inside the govuk-panel__body element.</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 </div>
 </details>
 

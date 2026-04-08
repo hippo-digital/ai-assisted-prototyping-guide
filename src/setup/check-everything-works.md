@@ -10,7 +10,7 @@ part: "Part 1: Get set up"
 
 Before you start building, let us confirm that all your tools are working together.
 
-You should have 2 terminals open in VS Code:
+You should have 2 terminals open in Kiro:
 
 - **Terminal 1:** running your prototype (`npm run dev`)
 - **Terminal 2:** running Gemini CLI (`npx @google/gemini-cli`)
@@ -27,7 +27,10 @@ In Gemini CLI (Terminal 2), type:
 Change the service name in this prototype to "Report a building issue". The config file is at app/config.json — update the serviceName field.
 ```
 
-Gemini will ask permission to edit the file. Type **yes**.
+Gemini will show you the change it wants to make and ask for your permission. Use the **arrow keys** to select **Allow once**, then press **Enter** to confirm.
+
+<img src="/ai-assisted-prototyping-guide/images/gemini-action-required.png" alt="Gemini CLI showing an Action Required prompt, with a diff of the proposed change to app/config.json and options to Allow once, Allow for this session, or No" class="screenshot">
+<p class="screenshot-caption">Gemini shows exactly what it plans to change before making any edits. Use the arrow keys to choose an option and press Enter.</p>
 
 Now go to your browser and refresh the page at `http://localhost:3000`.
 
@@ -41,7 +44,7 @@ Now go to your browser and refresh the page at `http://localhost:3000`.
 <ul>
 <li>Check that Gemini confirmed the edit. If it asked permission and you said yes, it should have confirmed the change.</li>
 <li>Try a hard refresh: <strong>Cmd + Shift + R</strong> (Mac) or <strong>Ctrl + Shift + R</strong> (Windows).</li>
-<li>Check manually: open <code>app/config.json</code> in VS Code and look at the <code>serviceName</code> value.</li>
+<li>Check manually: open <code>app/config.json</code> in Kiro and look at the <code>serviceName</code> value.</li>
 <li>Make sure your prototype is still running in Terminal 1.</li>
 </ul>
 </div>
@@ -51,7 +54,7 @@ Now go to your browser and refresh the page at `http://localhost:3000`.
 
 | Tool | How to check it is working |
 |------|---------------------------|
-| VS Code | You can see your project files in the sidebar |
+| Kiro | You can see your project files in the sidebar |
 | Node.js | `node --version` shows v20 or higher |
 | Prototype Kit | Your prototype loads at `http://localhost:3000` |
 | Gemini CLI | You can type prompts and Gemini responds |
@@ -68,7 +71,7 @@ The more detail you give, the better the result. Instead of "make a page", try "
 
 ### You can undo any change
 
-Press **Ctrl + Z** (or **Cmd + Z** on Mac) in the affected file to undo. You can also ask Gemini to revert the change.
+Press **Cmd + Z** (Mac) or **Ctrl + Z** (Windows) in the affected file to undo. You can also ask Gemini to revert the change.
 
 ### Refer to the GOV.UK Design System
 

@@ -34,7 +34,7 @@ Include:
 Follow GOV.UK Frontend markup exactly, including the govuk-form-group wrapper and govuk-radios__item divs.
 ```
 
-Gemini will ask permission to create the file. Type **yes**.
+Gemini will show you the file it wants to create and ask for your permission. Use the **arrow keys** to select **Allow once**, then press **Enter** to confirm.
 
 ## Check your browser
 
@@ -48,7 +48,7 @@ Go to `http://localhost:3000/issue-type`.
 <summary>The radio button labels are bold</summary>
 <div class="details-body">
 <p>This is a common error. GOV.UK radio labels should use the <code>govuk-label</code> class but not <code>govuk-label--m</code> or <code>govuk-label--s</code> inside a fieldset. Ask Gemini to fix it:</p>
-<div class="code-block"><code>The radio button labels on app/views/issue-type.html are bold. They should use the govuk-label class only, without any size modifier. Please fix the label markup.</code></div>
+<div class="code-block"><code>The radio button labels on app/views/issue-type.html are bold. They should use the govuk-label class only, without any size modifier. Please fix the label markup.</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 </div>
 </details>
 
@@ -56,7 +56,7 @@ Go to `http://localhost:3000/issue-type`.
 <summary>The question is not the page's h1</summary>
 <div class="details-body">
 <p>On GOV.UK, question pages should have exactly one h1, which should be the question itself – wrapped inside the fieldset legend. Ask Gemini:</p>
-<div class="code-block"><code>On app/views/issue-type.html, the question heading should be an h1 inside the fieldset legend. Use the pattern: &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--l"&gt;&lt;h1 class="govuk-fieldset__heading"&gt;What type of issue do you want to report?&lt;/h1&gt;&lt;/legend&gt;</code></div>
+<div class="code-block"><code>On app/views/issue-type.html, the question heading should be an h1 inside the fieldset legend. Use the pattern: &lt;legend class="govuk-fieldset__legend govuk-fieldset__legend--l"&gt;&lt;h1 class="govuk-fieldset__heading"&gt;What type of issue do you want to report?&lt;/h1&gt;&lt;/legend&gt;</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 </div>
 </details>
 
@@ -88,7 +88,7 @@ Go to `http://localhost:3000/issue-type`.
 <summary>Adding a "None of these" option with a divider</summary>
 <div class="details-body">
 <p>The GOV.UK Design System has a pattern for separating a "none" option from the main list using a divider. Ask Gemini:</p>
-<div class="code-block"><code>Add an "or" divider and a "None of these" option at the bottom of the radio group on app/views/issue-type.html, following the GOV.UK radios with divider pattern.</code></div>
+<div class="code-block"><code>Add an "or" divider and a "None of these" option at the bottom of the radio group on app/views/issue-type.html, following the GOV.UK radios with divider pattern.</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 </div>
 </details>
 

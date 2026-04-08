@@ -14,17 +14,22 @@ The Prototype Kit gives you everything you need to make your prototype look and 
 
 First, choose where on your computer you want to keep your prototypes. We recommend creating a folder called `prototypes` in your home directory.
 
-In the VS Code terminal, type:
+In the Kiro terminal, type the first command and press Enter:
 
 ```
 mkdir ~/prototypes
+```
+
+Then type the second command and press Enter:
+
+```
 cd ~/prototypes
 ```
 
 <details>
 <summary>What mkdir and cd mean</summary>
 <div class="details-body">
-<p><code>mkdir</code> stands for "make directory" – it creates a new folder. <code>cd</code> stands for "change directory" – it moves you into that folder. The <code>~</code> symbol means your home folder (for example, <code>/Users/yourname</code> on a Mac).</p>
+<p><code>mkdir</code> stands for "make directory" – it creates a new folder. <code>cd</code> stands for "change directory" – it moves you into that folder. The <code>~</code> symbol means your home folder (for example, <code>/Users/yourname</code> on a Mac or <code>C:\Users\yourname</code> on Windows).</p>
 </div>
 </details>
 
@@ -44,25 +49,16 @@ When it finishes, move into your new project folder:
 cd report-building-issue
 ```
 
-## Step 3: Open the project in VS Code
+## Step 3: Open the project in Kiro
 
-Open your project folder in VS Code by typing:
+Open Kiro. Go to **File → Open Folder**, then find and select the `report-building-issue` folder inside your `prototypes` folder.
 
-```
-code .
-```
+You should see the project files appear in the left-hand sidebar.
 
-<details>
-<summary>The 'code' command does not work</summary>
-<div class="details-body">
-<p>On Mac, you may need to set up the <code>code</code> command first. In VS Code, press <strong>Cmd + Shift + P</strong>, type <code>Shell Command</code>, and select <strong>Install 'code' command in PATH</strong>.</p>
-<p>Alternatively, open VS Code manually and use <strong>File</strong> → <strong>Open Folder</strong> to find your project folder.</p>
-</div>
-</details>
 
 ## Step 4: Run the prototype
 
-In the VS Code terminal (make sure you are in the `report-building-issue` folder), type:
+In the Kiro terminal (make sure you are in the `report-building-issue` folder), type:
 
 ```
 npm run dev
@@ -86,7 +82,7 @@ http://localhost:3000
 <summary>The header is black, not blue</summary>
 <div class="details-body">
 <p>GOV.UK refreshed its brand in June 2025, moving the header from black to blue. The Prototype Kit supports this via a flag in <code>app/config.json</code>. If your header is showing as black, the rebrand flag may not be enabled.</p>
-<p>Open <code>app/config.json</code> in VS Code and check whether it includes <code>"rebrand": true</code> inside the plugins section. It should look like this:</p>
+<p>Open <code>app/config.json</code> in Kiro and check whether it includes <code>"rebrand": true</code> inside the plugins section. It should look like this:</p>
 <div class="code-block"><code>{
   "serviceName": "Report a building issue",
   "plugins": {
@@ -94,7 +90,7 @@ http://localhost:3000
       "rebrand": true
     }
   }
-}</code></div>
+}</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <p>If the plugins section is missing, add it. Save the file and refresh your browser – the header should turn blue.</p>
 <p>You need GOV.UK Frontend v5.10.0 or later for this to work. If you have just created your prototype with <code>npx govuk-prototype-kit create</code>, you should already have a compatible version.</p>
 </div>
@@ -107,7 +103,7 @@ http://localhost:3000
 <ul>
 <li><strong>"port 3000 is already in use"</strong> – close any other prototypes or dev servers, then try again.</li>
 <li><strong>"node_modules not found"</strong> – run <code>npm install</code> first, then <code>npm run dev</code>.</li>
-<li><strong>"permission denied"</strong> – on Mac, you may need a temporary admin session via <strong>Admin By Request</strong> before running <code>sudo npm run dev</code>.</li>
+<li><strong>"permission denied"</strong> – on Mac or Linux, you may need a temporary admin session via <strong>Admin By Request</strong> before running <code>sudo npm run dev</code>. On Windows, try running Kiro as an administrator via <strong>Admin By Request</strong>.</li>
 </ul>
 <p>If you are stuck, check the <a href="https://prototype-kit.service.gov.uk/docs/support" target="_blank" rel="noopener noreferrer">Prototype Kit support page</a> or ask a developer on your team.</p>
 </div>
@@ -115,7 +111,7 @@ http://localhost:3000
 
 ## Understanding the project files
 
-In the VS Code sidebar, the main folders to know about are:
+In the Kiro sidebar, the main folders to know about are:
 
 - **app/views** – where all your pages live. Each page is an HTML file.
 - **app/assets** – for images, custom CSS, and JavaScript.
@@ -144,18 +140,6 @@ This means you can go directly to any page at any time by typing its URL into yo
 <div class="inset-text">
 <p>In Part 2, after Gemini creates each page, the guide will tell you to go to a specific URL to check it. Just type that URL directly into your browser – for example, <code>http://localhost:3000/start</code>.</p>
 </div>
-
-## Optional: add a start button to the index page
-
-The default index page at `http://localhost:3000` is a plain list of links. You can ask Gemini to add a button that links directly to the first page of your journey. This is useful if you want to share the prototype with a user researcher or stakeholder.
-
-Once you have started Gemini CLI in Part 1, you can use this prompt:
-
-```
-Update app/views/index.html to add a "Start now" button that links to /start. Place it below any existing content on the page. Use the govuk-button and govuk-button--start classes, and include the GOV.UK arrow SVG icon inside the button.
-```
-
-This is optional. You can always navigate directly to `http://localhost:3000/start` without it.
 
 <div class="warning-text">
 <span class="warning-text__icon" aria-hidden="true">!</span>

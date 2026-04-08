@@ -13,13 +13,13 @@ Do not worry if these are unfamiliar – the next few pages will walk you throug
 
 ## The tools
 
-### A code editor (VS Code)
-A code editor is a program for viewing and editing the files that make up your prototype. Think of it like Microsoft Word, but for code. We recommend Visual Studio Code (VS Code) because it is free, works on all computers, and is the most widely used editor in government.
+### A code editor (Kiro)
+A code editor is a program for viewing and editing the files that make up your prototype. Think of it like Microsoft Word, but for code.
 
 <details>
   <summary>I already use a different code editor</summary>
   <div class="details-body">
-    <p>If you are comfortable with another editor like Google AntiGravity or WebStorm, you can use that instead. The guide references VS Code in its instructions, but the steps work the same way in any editor.</p>
+    <p>If you are comfortable with another editor like VS Code or WebStorm, you can use that instead. The guide references Kiro in its instructions, but the steps work the same way in any editor.</p>
   </div>
 </details>
 
@@ -36,11 +36,15 @@ Gemini CLI is a free AI tool made by Google that runs in your terminal (the text
 
 This is the key difference from traditional prototyping: instead of writing HTML by hand, you describe what you want and Gemini creates it.
 
+<div class="inset-text">
+  <p><strong>Kiro has its own built-in AI — this guide does not use it.</strong> You will be using Gemini CLI in the terminal instead. The two work differently, so it is important to use the right one. When this guide says "type a prompt", it always means in the Gemini CLI terminal, not the Kiro chat panel.</p>
+</div>
+
 <details>
   <summary>What a terminal is</summary>
   <div class="details-body">
     <p>A terminal (also called a command line or command prompt) is a text-based way of talking to your computer. Instead of clicking icons, you type commands.</p>
-    <p>On a Mac, the terminal app is called Terminal. On Windows, you can use Command Prompt or PowerShell. VS Code also has a built-in terminal, which we will use in this guide.</p>
+    <p>On a Mac, the terminal app is called Terminal. On Windows, you can use Command Prompt or PowerShell. Kiro also has a built-in terminal, which we will use in this guide – so you do not need to open a separate one.</p>
     <p>You do not need to memorise terminal commands. We will tell you exactly what to type at each step.</p>
   </div>
 </details>

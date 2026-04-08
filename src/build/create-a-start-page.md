@@ -31,7 +31,7 @@ The page content should include:
 Use GOV.UK Frontend classes throughout. The button should use the correct GOV.UK start button markup with the SVG arrow icon.
 ```
 
-Gemini will ask permission to create the file. Type **yes**.
+Gemini will show you the file it wants to create and ask for your permission. Use the **arrow keys** to select **Allow once**, then press **Enter** to confirm.
 
 ## Check your browser
 
@@ -45,7 +45,7 @@ Go to `http://localhost:3000/start` in your browser.
 <summary>The page is not found (404 error)</summary>
 <div class="details-body">
 <p>Check that Gemini confirmed it created the file at <code>app/views/start.html</code>. If it did not, ask it again:</p>
-<div class="code-block"><code>Create the file app/views/start.html as described.</code></div>
+<div class="code-block"><code>Create the file app/views/start.html as described.</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <p>Also check that your prototype is still running in Terminal 1. If not, run <code>npm run dev</code> again.</p>
 </div>
 </details>
@@ -54,9 +54,9 @@ Go to `http://localhost:3000/start` in your browser.
 <summary>The page looks wrong – no GOV.UK styling</summary>
 <div class="details-body">
 <p>This usually means the Nunjucks layout is not being extended correctly. Check that the first line of <code>app/views/start.html</code> is:</p>
-<div class="code-block"><code>{% extends "layouts/main.html" %}</code></div>
+<div class="code-block"><code>{% extends "layouts/main.html" %}</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <p>If it is not there, ask Gemini to fix it:</p>
-<div class="code-block"><code>The start page at app/views/start.html is not using the GOV.UK layout. Make sure it extends "layouts/main.html" correctly.</code></div>
+<div class="code-block"><code>The start page at app/views/start.html is not using the GOV.UK layout. Make sure it extends "layouts/main.html" correctly.</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 </div>
 </details>
 
@@ -64,7 +64,7 @@ Go to `http://localhost:3000/start` in your browser.
 <summary>The button does not look like a GOV.UK start button</summary>
 <div class="details-body">
 <p>The GOV.UK start button requires both the <code>govuk-button</code> and <code>govuk-button--start</code> classes, plus an SVG arrow icon inside the button element. Ask Gemini to fix it:</p>
-<div class="code-block"><code>The start button on app/views/start.html does not look right. Update it to use the correct GOV.UK start button with the SVG arrow icon. The button element should have classes govuk-button and govuk-button--start, and contain the correct arrow SVG.</code></div>
+<div class="code-block"><code>The start button on app/views/start.html does not look right. Update it to use the correct GOV.UK start button with the SVG arrow icon. The button element should have classes govuk-button and govuk-button--start, and contain the correct arrow SVG.</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 </div>
 </details>
 
@@ -73,7 +73,7 @@ Go to `http://localhost:3000/start` in your browser.
 <details>
 <summary>What the Nunjucks layout does</summary>
 <div class="details-body">
-<p>When you open <code>app/views/start.html</code> in VS Code, you will see it starts with <code>{% extends "layouts/main.html" %}</code>. This tells the Prototype Kit to wrap your page content with the shared layout – the GOV.UK blue header, footer, and skip link.</p>
+<p>When you open <code>app/views/start.html</code> in Kiro, you will see it starts with <code>{% extends "layouts/main.html" %}</code>. This tells the Prototype Kit to wrap your page content with the shared layout – the GOV.UK blue header, footer, and skip link.</p>
 <p>The rest of your content sits inside a <code>{% block content %}</code> tag. Only what is inside that block is unique to this page.</p>
 </div>
 </details>

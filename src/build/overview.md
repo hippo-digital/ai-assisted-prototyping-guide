@@ -45,17 +45,17 @@ Make sure you have:
 - Terminal 2 open with Gemini CLI running (`npx @google/gemini-cli`), pointed at your prototype folder
 - Your prototype open in a browser at `http://localhost:3000`
 
-If you closed your terminals since Part 1, open VS Code, navigate to your prototype folder, and restart both.
+If you closed your terminals since Part 1, open Kiro, navigate to your prototype folder, and restart both.
 
 <details>
 <summary>Restarting if you closed everything</summary>
 <div class="details-body">
-<p>Open VS Code and open your prototype folder (<strong>File → Open Folder</strong> and find <code>report-building-issue</code>).</p>
+<p>Open Kiro and open your prototype folder (<strong>File → Open Folder</strong> and find <code>report-building-issue</code>).</p>
 <p>Open Terminal 1 and run:</p>
-<div class="code-block"><code>npm run dev</code></div>
+<div class="code-block"><code>npm run dev</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <p>Open Terminal 2 (click the + icon in the terminal panel), navigate into your prototype folder, then run:</p>
 <div class="code-block"><code>cd ~/prototypes/report-building-issue
-npx @google/gemini-cli</code></div>
+npx @google/gemini-cli</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <p>Check your browser at <code>http://localhost:3000</code> – you should see your prototype.</p>
 </div>
 </details>
@@ -70,6 +70,16 @@ You do not need a link or button to visit a page. Just type the URL directly int
 - After creating `app/views/issue-type.html`, go to `http://localhost:3000/issue-type`
 
 This is how designers normally navigate their own prototypes. Each section of this guide will tell you exactly which URL to visit.
+
+<details>
+<summary>Optional: add a Start now button to the index page</summary>
+<div class="details-body">
+<p>The default index page at <code>http://localhost:3000</code> is a plain list of links. Once you have Gemini CLI running, you can ask it to add a "Start now" button that links directly to the first page of your journey. This is useful if you want to share the prototype with a user researcher or stakeholder.</p>
+<p>In Gemini CLI, paste this prompt:</p>
+<div class="code-block"><code>Update app/views/index.html to add a "Start now" button that links to /start. Place it below any existing content on the page. Use the govuk-button and govuk-button--start classes, and include the GOV.UK arrow SVG icon inside the button.</code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
+<p>You can always navigate directly to <code>http://localhost:3000/start</code> without it – this is entirely optional.</p>
+</div>
+</details>
 
 ## A note on how Gemini handles HTML in the Prototype Kit
 

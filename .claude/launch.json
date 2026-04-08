@@ -5,7 +5,8 @@
       "name": "hippo-guide",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["@11ty/eleventy", "--serve"],
-      "port": 8080
+      "port": 8080,
+      "autoPort": true
     }
   ]
 }
