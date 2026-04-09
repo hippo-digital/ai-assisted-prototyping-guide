@@ -135,21 +135,20 @@
 <p>The GOV.UK Design System calls this the <a href="https://design-system.service.gov.uk/patterns/check-answers/">check answers pattern</a>. It uses a summary list component to show each question and answer with a &quot;Change&quot; link next to each one.</p>
 <h2>The prompt</h2>
 <p>In Gemini CLI, paste this prompt:</p>
-<div class="code-block"><code>Create a GOV.UK check answers page at app/views/check-answers.html.
+<div class="code-block"><code>Create a GOV.UK check answers page at app/views/check-answers.html that extends layouts/main.html.
 
-The page should extend &quot;layouts/main.html&quot;.
+The page should have the heading &quot;Check your answers&quot; and show a summary list with three rows:
+- Type of issue: Structural problem, with a change link back to /issue-type
+- Floor or area: 2nd floor, with a change link back to /issue-location
+- Description: There is a large crack in the exterior wall near the fire exit on the east side of the building., with a change link back to /issue-location
 
-Include:
-- An h1 heading: &quot;Check your answers&quot;
-- A summary list using the govuk-summary-list component with these rows:
-  Row 1: key &quot;Type of issue&quot;, value &quot;Structural problem&quot;, change link href=&quot;/issue-type&quot; with visually hidden text &quot;type of issue&quot;
-  Row 2: key &quot;Floor or area&quot;, value &quot;2nd floor&quot;, change link href=&quot;/issue-location&quot; with visually hidden text &quot;floor or area&quot;
-  Row 3: key &quot;Description&quot;, value &quot;There is a large crack in the exterior wall near the fire exit on the east side of the building.&quot;, change link href=&quot;/issue-location&quot; with visually hidden text &quot;description&quot;
-- A heading below the summary list: &quot;Now send your report&quot;
-- A paragraph: &quot;By submitting this report you confirm the details are correct to the best of your knowledge.&quot;
-- A form with method=&quot;post&quot; action=&quot;/check-answers&quot; containing a &quot;Accept and send&quot; button using govuk-button
+Each change link should include visually hidden text so screen reader users know what they are changing — for example &quot;Change type of issue&quot; rather than just &quot;Change&quot;.
 
-Use the full govuk-summary-list markup including govuk-summary-list__row, govuk-summary-list__key, govuk-summary-list__value, and govuk-summary-list__actions. The change links should use govuk-link class and include a &lt;span class=&quot;govuk-visually-hidden&quot;&gt; for screen reader context.
+Below the summary list, add a heading &quot;Now send your report&quot; and the paragraph &quot;By submitting this report you confirm the details are correct to the best of your knowledge.&quot;
+
+Finally, add an &quot;Accept and send&quot; button that submits the form to /check-answers using a POST request.
+
+Use GOV.UK Frontend components and classes throughout.
 </code><button class="code-copy-btn" aria-label="Copy to clipboard">Copy</button></div>
 <p>Gemini will show you the file it wants to create and ask for your permission. Use the <strong>arrow keys</strong> to select <strong>Allow once</strong>, then press <strong>Enter</strong> to confirm.</p>
 <h2>Check your browser</h2>
